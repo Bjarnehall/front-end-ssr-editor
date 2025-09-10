@@ -1,7 +1,9 @@
 
 Testar skapa en branch
 
-# Skapa ett react projekt i nuvarande folder med hjälp av vite
+# ENDAST FÖR ATT SKAPA REACT BEHÖVS EJ NÄR REPO LADDATS NED
+
+### Skapa ett react projekt i nuvarande folder med hjälp av vite
 
 npm create vite@latest ./
 
@@ -14,7 +16,7 @@ Välj React
 Välj Javascript
 
 
-# Nästa steg
+# NÄR REPO LADDATS NED FÖR ATT KÖRA LOKALT
 
 npm install
 npm run dev

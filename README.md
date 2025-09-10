@@ -1,7 +1,7 @@
 
 Testar skapa en branch
 
-# ENDAST FÖR ATT SKAPA REACT BEHÖVS EJ NÄR REPO LADDATS NED
+# Hur jag skapade REACT
 
 ### Skapa ett react projekt i nuvarande folder med hjälp av vite
 

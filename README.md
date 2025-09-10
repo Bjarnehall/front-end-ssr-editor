@@ -16,9 +16,15 @@ Välj React
 Välj Javascript
 
 
-# NÄR REPO LADDATS NED FÖR ATT KÖRA LOKALT
+# För att använda applikation
 
 npm install
 npm run dev
 
+# Att köra tillsammans med express
+
+i components/HelloJson.jsx finns en component som hämtar
+json värde från express när den körs lokalt på port 8080
+
+Både react och express applikation måste vara igång samtidigt.
 

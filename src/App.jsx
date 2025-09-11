@@ -8,8 +8,8 @@ function App() {
   return (
     <>
     <h1><HelloJson/></h1>
-    <h2>Test av Update</h2>
-    <UpdateDoc id={1} />
+    <h2>Test av UpdateDoc</h2>
+    <UpdateDoc id={4} />
     <DeleteDoc/>
     </>
   )

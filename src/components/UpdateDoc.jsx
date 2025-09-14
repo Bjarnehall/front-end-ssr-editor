@@ -15,6 +15,18 @@ function UpdateDoc() {
         .then(data => setDocs(data.data));
     }, []);
 
+    function handleSelect(e) {
+        const selectedId = e.target.value;
+
+        setId(selectedId);
+
+        const selectedDoc = docs.find(doc => String(doc.id) === selectedId);
+
+        if (selectedDoc) {
+            setContent(selectedDoc.content);
+        }
+    }
+
     //Funktion för att hantera ett submit
     function handleSubmit(e) {
         // Förhindra ladda om sidan och göra fetch
@@ -30,8 +42,8 @@ function UpdateDoc() {
     return (
         <form onSubmit={handleSubmit}>
             <label>Välj dokument</label><br/>
-            <select value={id} onChange={e => setId(e.target.value)}>
-              <option value="">-- välj --</option>
+            <select value={id} onChange={handleSelect}>
+              <option value="">-- Välj --</option>
               {docs.map(doc => (
                 <option key={doc.id} value={doc.id}>{doc.title}</option>
               ))}

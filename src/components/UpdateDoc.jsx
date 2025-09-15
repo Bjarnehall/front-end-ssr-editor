@@ -1,3 +1,4 @@
+import "./UpdateDoc.css";
 import { useState } from "react";
 
 function UpdateDoc( {preselectedDoc }) {
@@ -9,6 +10,8 @@ function UpdateDoc( {preselectedDoc }) {
         // Förhindra ladda om sidan och göra fetch
         e.preventDefault();
 
+        alert("Document was saved!");
+
         fetch(`http://localhost:8080/api/update/${preselectedDoc.id}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -17,23 +20,25 @@ function UpdateDoc( {preselectedDoc }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>Titel</label><br/>
-            <input
-              type="text"
-              value={title}
-              onChange={e => setTitle(e.target.value)}
-            /><br/>
+        <div className="editor-form">
+            <form onSubmit={handleSubmit}>
+                <label>Document Title</label><br/>
+                <input
+                type="text"
+                value={title}
+                onChange={e => setTitle(e.target.value)}
+                /><br/>
 
-            <label>Ny text</label><br/>
-            <input
-              type="text"
-              value={content}
-              onChange={e => setContent(e.target.value)}
-            /><br/>
-            
-            <button type="submit">Uppdatera</button>
-        </form>
+                <label>Document Text</label><br/>
+                <textarea
+                type="text"
+                value={content}
+                onChange={e => setContent(e.target.value)}
+                /><br/>
+                
+                <button className="update-button" type="submit">Save document</button>
+            </form>
+        </div>
     );
 }
 

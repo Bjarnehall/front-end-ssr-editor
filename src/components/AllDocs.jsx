@@ -1,3 +1,4 @@
+import "./AllDocs.css";
 import { useState, useEffect } from "react";
 
 function AllDocs({ onEdit }) {
@@ -11,12 +12,12 @@ function AllDocs({ onEdit }) {
 
     return (
         <div>
-            <h2>All documents</h2>
-            <ul>
+            <h2 className="title">All documents</h2>
+            <ul className="list">
                 {docs.map(doc => (
                     <li key={doc.id}>
-                        <strong>{doc.title}</strong>:
-                        {onEdit && (<button onClick={() => onEdit(doc)}>Redigera</button>)}
+                        <strong>{doc.title}</strong>
+                        {onEdit && (<button className="list-button" onClick={() => onEdit(doc)}>Edit</button>)}
                     </li>
                 ))}
             </ul>

@@ -1,26 +1,20 @@
 import { useState } from 'react'
 import Nav from "./components/Nav";
-// import HelloJson from './components/HelloJson'
 import UpdateDoc from "./components/UpdateDoc";
 import DeleteDoc from './components/DeleteDoc'
 import AllDocs from "./components/AllDocs";
 import CreateDoc from "./components/CreateDoc";
 
 function App() {
-  const [view, setView] = useState("home");
+  const [view, setView] = useState("editor");
+  const [editDoc, setDoc] = useState(null);
 
   return (
     <>
       <Nav current={view} onNavigate={setView} />
 
-      {view === "home"   && <h2>Välkommen!</h2>}
+      {view === "about"   && <h2>About this app</h2>}
 
-      
-      {view === "all" && (
-        <>
-          <AllDocs />
-        </>
-      )}
 
       {view === "create" && (
         <>
@@ -28,17 +22,15 @@ function App() {
         </>
       )}
 
-      {view === "update" && (
-        <>
-          <h2>Uppdatera dokument</h2>
-          <UpdateDoc />
-        </>
+      {view === "editor" && !editDoc && (
+        <AllDocs onEdit={doc => setDoc(doc)} />
       )}
 
-      {view === "delete" && (
+      {view === "editor" && editDoc && (
         <>
-          <h2>Radera dokument</h2>
-          <DeleteDoc />
+          <button onClick={() => setDoc(null)}>Back to documents</button>
+          <UpdateDoc preselectedDoc={editDoc} />
+          <DeleteDoc preselectedDoc={editDoc} />
         </>
       )}
     </>

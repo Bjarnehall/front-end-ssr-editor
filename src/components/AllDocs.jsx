@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function AllDocs() {
+function AllDocs({ onEdit }) {
     const [docs, setDocs] = useState([]);
 
     useEffect(() => {
@@ -11,11 +11,12 @@ function AllDocs() {
 
     return (
         <div>
-            <h2>Alla dokument</h2>
+            <h2>All documents</h2>
             <ul>
                 {docs.map(doc => (
                     <li key={doc.id}>
-                        <strong>{doc.title}</strong>: {doc.content}
+                        <strong>{doc.title}</strong>:
+                        {onEdit && (<button onClick={() => onEdit(doc)}>Redigera</button>)}
                     </li>
                 ))}
             </ul>

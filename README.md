@@ -28,3 +28,95 @@ json värde från express när den körs lokalt på port 8080
 
 Både react och express applikation måste vara igång samtidigt.
 
+
+
+
+# Guide to testing in react
+
+## Set up a react project and make tests
+
+To create a new react project
+npm create vite@latest myproject
+
+Install dependencies
+npm install
+
+Remove boilerplate code from App.jsx and add a h1
+function App() {
+  return (
+    <>
+      <h1>Hello</h1>
+    </>
+  )
+}
+export default App
+
+Start server to see that everything works
+npm run dev
+
+
+## Install dependencies
+
+Install vitest
+npm install -D vitest
+
+Install jsdom
+npm install -D jsdom
+
+Install library for testing
+npm install -D @testing-library/react
+
+Install istanbul for coverage report
+npm install -D @vitest/coverage-istanbul
+
+## Setting up environment
+
+In package.json under scripts add test and coverage
+
+  "scripts": {
+    //
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+
+In vite.config.js add setup for testing
+
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    environment: "jsdom",
+    setUpFiles : './setupTests.js',
+    coverage: {
+      provider: 'istanbul',
+    }
+  }
+})
+
+Add file setupTests.js in root folder
+
+import { expect } from 'vitest'
+import matchers from '@testing-library/jest-dom/matchers'
+
+expect.extend(matchers)
+
+## Writing a test
+
+Add file App.test.jsx in src folder
+
+import { test, expect } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import App from './App'
+
+test('renders the <h1> with text "Hello"', () => {
+  render(<App />)
+  const heading = screen.getByText(/Hello/)
+  expect(heading).not.toBeNull()
+})
+
+## Running tests
+
+Run tests
+npm run test
+
+Run coverage report
+npm run coverage

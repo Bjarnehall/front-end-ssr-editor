@@ -65,6 +65,7 @@ npm install -D jsdom
 
 Install library for testing
 npm install -D @testing-library/react
+npm install -D @testing-library/jest-dom
 
 Install istanbul for coverage report
 npm install -D @vitest/coverage-istanbul
@@ -120,3 +121,9 @@ npm run test
 
 Run coverage report
 npm run coverage
+
+
+Sources
+https://dev.to/samuel_kinuthia/testing-react-applications-with-vitest-a-comprehensive-guide-2jm8
+https://vitest.dev/
+https://www.youtube.com/watch?v=G-4zgIPsjkU

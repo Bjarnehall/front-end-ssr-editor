@@ -16,7 +16,7 @@ function About() {
             keeping express but rebuilding it as a rest-API using mongoDB as a standalone
             database.
         </p>
-        <p>
+        <p className="authors">
             The project is made by Jonas and Valeriia and we call ourself: LOST IN REACT.
         </p>
         </div>

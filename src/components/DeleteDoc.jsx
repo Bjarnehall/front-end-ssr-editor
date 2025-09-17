@@ -5,7 +5,7 @@ function DeleteDoc({ preselectedDoc }) {
     <div className="delete-doc-form">
       <form method="POST" action="http://localhost:8080/delete">
         <input className="delete-button" type="submit" value="Delete document" />
-        <input type="hidden" name="dokument" value={preselectedDoc ? preselectedDoc.id : selectedId} />
+        <input type="hidden" name="dokument" value={preselectedDoc ? preselectedDoc.id : ''} />
       </form>
     </div>
   );

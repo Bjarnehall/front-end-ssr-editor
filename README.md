@@ -66,6 +66,7 @@ npm install -D jsdom
 Install library for testing
 npm install -D @testing-library/react
 npm install -D @testing-library/jest-dom
+npm install -D @testing-library/user-event
 
 Install istanbul for coverage report
 npm install -D @vitest/coverage-istanbul
@@ -127,3 +128,8 @@ Sources
 https://dev.to/samuel_kinuthia/testing-react-applications-with-vitest-a-comprehensive-guide-2jm8
 https://vitest.dev/
 https://www.youtube.com/watch?v=G-4zgIPsjkU
+https://markus.oberlehner.net/blog/using-testing-library-jest-dom-with-vitest/
+https://testing-library.com/docs/user-event/setup/?utm_source=chatgpt.com
+https://vitest.dev/guide/browser/interactivity-api
+https://stackoverflow.com/questions/60113292/when-to-use-act-in-jest-unit-tests-with-react-dom
+https://runthatline.com/how-to-mock-fetch-api-with-vitest/

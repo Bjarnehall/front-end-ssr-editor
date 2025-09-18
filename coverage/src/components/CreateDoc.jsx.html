@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -114,40 +114,32 @@
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -155,7 +147,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -166,50 +168,51 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import "./CreateDoc.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 &nbsp;
-function <span class="fstat-no" title="function not covered" >CreateDoc() {</span>
+function CreateDoc() {
 &nbsp;
-    const [title, setTitle] = <span class="cstat-no" title="statement not covered" >useState("");</span>
-    const [content, setContent] = <span class="cstat-no" title="statement not covered" >useState("");</span>
+    const [title, setTitle] = useState("");
+    const [content, setContent] = useState("");
 &nbsp;
 &nbsp;
-    function <span class="fstat-no" title="function not covered" >handleSubmit(e</span>) {
-<span class="cstat-no" title="statement not covered" >        e.preventDefault();</span>
+    function handleSubmit(e) {
+        e.preventDefault();
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        alert("Document was created!");</span>
+        alert("Document was created!");
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        fetch(`http://localhost:8080/api/create`, {</span>
+        fetch(`http://localhost:8080/api/create`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ title, content })
         });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        setTitle("");</span>
-<span class="cstat-no" title="statement not covered" >        setContent("");</span>
+        setTitle("");
+        setContent("");
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
         &lt;form onSubmit={handleSubmit}&gt;
             &lt;h2 className="title"&gt;Create new document&lt;/h2&gt;
 &nbsp;
             &lt;div className="editor-form"&gt;
-            &lt;label&gt;Document Title&lt;/label&gt;&lt;br/&gt;
+            &lt;label htmlFor="title"&gt;Document Title&lt;/label&gt;&lt;br/&gt;
             &lt;input
+                id="title"
                 type="text"
                 value={title}
-                onChange={<span class="fstat-no" title="function not covered" >e =&gt; <span class="cstat-no" title="statement not covered" >s</span>etTitle(e.target.value)}</span>
+                onChange={e =&gt; setTitle(e.target.value)}
             /&gt;&lt;br/&gt;
 &nbsp;
-&nbsp;
-            &lt;label&gt;Document Text&lt;/label&gt;&lt;br/&gt;
+            &lt;label htmlFor="content"&gt;Document Text&lt;/label&gt;&lt;br/&gt;
             &lt;textarea
-              type="text"
-              value={content}
-              onChange={<span class="fstat-no" title="function not covered" >e =&gt; <span class="cstat-no" title="statement not covered" >s</span>etContent(e.target.value)}</span>
+                id="content"
+                type="text"
+                value={content}
+                onChange={e =&gt; setContent(e.target.value)}
             /&gt;&lt;br/&gt;
 &nbsp;
-            &lt;button className="create-button" type="submit"&gt;Skapa&lt;/button&gt;
+            &lt;button className="create-button" type="submit"&gt;Create Document&lt;/button&gt;
             &lt;/div&gt;
         &lt;/form&gt;
         
@@ -223,7 +226,7 @@ export default CreateDoc;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-09-17T13:57:26.421Z
+                at 2025-09-18T19:08:55.660Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1758117446426" clover="3.2.0">
-  <project timestamp="1758117446426" name="All files">
-    <metrics statements="38" coveredstatements="5" conditionals="14" coveredconditionals="0" methods="23" coveredmethods="3" elements="75" coveredelements="8" complexity="0" loc="38" ncloc="38" packages="2" files="8" classes="8"/>
+<coverage generated="1758222535665" clover="3.2.0">
+  <project timestamp="1758222535666" name="All files">
+    <metrics statements="38" coveredstatements="24" conditionals="14" coveredconditionals="3" methods="23" coveredmethods="16" elements="75" coveredelements="43" complexity="0" loc="38" ncloc="38" packages="2" files="8" classes="8"/>
     <package name="src">
       <metrics statements="6" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="3" coveredmethods="0"/>
       <file name="App.jsx" path="/home/sepheron/dbwebb-kurser/jsramverk/repo-ssr/front-end-editor/src/App.jsx">
@@ -18,45 +18,45 @@
       </file>
     </package>
     <package name="src.components">
-      <metrics statements="32" coveredstatements="5" conditionals="4" coveredconditionals="0" methods="20" coveredmethods="3"/>
+      <metrics statements="32" coveredstatements="24" conditionals="4" coveredconditionals="3" methods="20" coveredmethods="16"/>
       <file name="About.jsx" path="/home/sepheron/dbwebb-kurser/jsramverk/repo-ssr/front-end-editor/src/components/About.jsx">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="4" count="3" type="stmt"/>
       </file>
       <file name="AllDocs.jsx" path="/home/sepheron/dbwebb-kurser/jsramverk/repo-ssr/front-end-editor/src/components/AllDocs.jsx">
-        <metrics statements="8" coveredstatements="4" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="2"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="20" count="1" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="CreateDoc.jsx" path="/home/sepheron/dbwebb-kurser/jsramverk/repo-ssr/front-end-editor/src/components/CreateDoc.jsx">
-        <metrics statements="10" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="6" count="17" type="stmt"/>
+        <line num="7" count="17" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="25" count="17" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="43" count="9" type="stmt"/>
       </file>
       <file name="DeleteDoc.jsx" path="/home/sepheron/dbwebb-kurser/jsramverk/repo-ssr/front-end-editor/src/components/DeleteDoc.jsx">
-        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="4" count="0" type="stmt"/>
+        <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
       </file>
       <file name="Nav.jsx" path="/home/sepheron/dbwebb-kurser/jsramverk/repo-ssr/front-end-editor/src/components/Nav.jsx">
-        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
       </file>
       <file name="UpdateDoc.jsx" path="/home/sepheron/dbwebb-kurser/jsramverk/repo-ssr/front-end-editor/src/components/UpdateDoc.jsx">
         <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>

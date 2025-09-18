@@ -27,22 +27,23 @@ function CreateDoc() {
             <h2 className="title">Create new document</h2>
 
             <div className="editor-form">
-            <label>Document Title</label><br/>
+            <label htmlFor="title">Document Title</label><br/>
             <input
+                id="title"
                 type="text"
                 value={title}
                 onChange={e => setTitle(e.target.value)}
             /><br/>
 
-
-            <label>Document Text</label><br/>
+            <label htmlFor="content">Document Text</label><br/>
             <textarea
-              type="text"
-              value={content}
-              onChange={e => setContent(e.target.value)}
+                id="content"
+                type="text"
+                value={content}
+                onChange={e => setContent(e.target.value)}
             /><br/>
 
-            <button className="create-button" type="submit">Skapa</button>
+            <button className="create-button" type="submit">Create Document</button>
             </div>
         </form>
         

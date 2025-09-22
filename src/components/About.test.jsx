@@ -37,4 +37,3 @@ test('The authors is named on page and belongs to a classname of "authors"', () 
     expect(authorOne).toBeVisible();
     expect(authorTwo).toBeVisible();
 });
-

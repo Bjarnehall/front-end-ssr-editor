@@ -1,4 +1,5 @@
 import "./UpdateDoc.css";
+import api_url from "../url.js";
 import { useState } from "react";
 
 function UpdateDoc( {preselectedDoc }) {
@@ -12,7 +13,7 @@ function UpdateDoc( {preselectedDoc }) {
 
         alert("Document was saved!");
 
-        fetch(`http://localhost:8080/api/update/${preselectedDoc.id}`, {
+        fetch(`${api_url}/api/update/${preselectedDoc.id}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ title, content })

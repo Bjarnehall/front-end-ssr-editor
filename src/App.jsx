@@ -36,7 +36,7 @@ function App() {
           <>
             <button className="back-button" onClick={() => setDoc(null)}>Back to documents</button>
             <UpdateDoc preselectedDoc={editDoc} />
-            <DeleteDoc preselectedDoc={editDoc} />
+            <DeleteDoc preselectedDoc={editDoc} onDelete={() => {setDoc(null); setView("editor");}} />
           </>
         )}
       </div>

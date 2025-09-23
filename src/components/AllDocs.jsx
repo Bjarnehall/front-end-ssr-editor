@@ -1,11 +1,12 @@
 import "./AllDocs.css";
+import api_url from "../url.js";
 import { useState, useEffect } from "react";
 
 function AllDocs({ onEdit }) {
     const [docs, setDocs] = useState([]);
 
     useEffect(() => {
-      fetch("http://localhost:8080/all")
+      fetch(`${api_url}/all`)
         .then(res => res.json())
         .then(data => setDocs(data.data));
     }, []);

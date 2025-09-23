@@ -1,4 +1,5 @@
 import "./CreateDoc.css";
+import api_url from "../url.js";
 import { useState } from "react";
 
 function CreateDoc() {
@@ -12,7 +13,7 @@ function CreateDoc() {
 
         alert("Document was created!");
 
-        fetch(`http://localhost:8080/api/create`, {
+        fetch(`${api_url}/api/create`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ title, content })

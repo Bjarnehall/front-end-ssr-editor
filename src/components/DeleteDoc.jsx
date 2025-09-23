@@ -1,12 +1,31 @@
 import "./DeleteDoc.css";
-function DeleteDoc({ preselectedDoc }) {
+import api_url from "../url.js";
+function DeleteDoc({ preselectedDoc, onDelete }) {
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(`${api_url}/api/delete/${preselectedDoc.id}`, {
+      method: "POST",
+      });
+
+      const data = await response.json();
+
+      if (data.ok) {
+        alert("Document was deleted!");
+        onDelete();
+      } else {
+        alert("Document failed delete!");
+      }
+    } catch (err) {
+      alert("Document failed delete!");
+    }
+  }
 
   return (
     <div className="delete-doc-form">
-      <form method="POST" action="https://ssr-editor-backend-d6a3fxdzgce8h0dv.northeurope-01.azurewebsites.net/delete">
-        <input className="delete-button" type="submit" value="Delete document" />
-        <input type="hidden" name="dokument" value={preselectedDoc ? preselectedDoc.id : ''} />
-      </form>
+      <button className="delete-button" onClick={handleSubmit}>Delete document</button>
     </div>
   );
 }

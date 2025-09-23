@@ -1,4 +1,5 @@
 import "./CreateDoc.css";
+import api_url from "../url.js";
 import { useState } from "react";
 
 function CreateDoc() {
@@ -12,7 +13,7 @@ function CreateDoc() {
 
         alert("Document was created!");
 
-        fetch(`https://ssr-editor-backend-d6a3fxdzgce8h0dv.northeurope-01.azurewebsites.net/api/create`, {
+        fetch(`${api_url}/api/create`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ title, content })

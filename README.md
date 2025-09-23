@@ -1,9 +1,9 @@
 
 Testar skapa en branch
 
-# Hur jag skapade REACT
+# Skapa en REACT application
 
-### Skapa ett react projekt i nuvarande folder med hjälp av vite
+## Skapa ett react projekt i nuvarande folder med hjälp av vite
 
 npm create vite@latest ./
 
@@ -15,49 +15,65 @@ Välj React
 
 Välj Javascript
 
-
-# För att använda applikation
+## För att använda applikation
 
 npm install
+
 npm run dev
 
-# Att köra tillsammans med express
-
-i components/HelloJson.jsx finns en component som hämtar
-json värde från express när den körs lokalt på port 8080
-
-Både react och express applikation måste vara igång samtidigt.
+Nu finns och körs en react applikation med dess default start sida lokalt.
 
 
+# Att köra  React tillsammans med Express
 
+Genom att hämta och skicka json data via fetch kan react applicationen
+fungera tillsammans med en helt fristående backend.
 
-# Guide to testing in react
+I exemplet nedan visas vår komponent AllDocs som hämtar data ifrån i detta fallet ett api byggt i express. Informationen visas sedan upp i en lista. I 
+exemplet används variablen api_url vilken hämtas från en extern fil, denna
+variabel ändras till antingen localhost:{port som appen körs på} för att testa
+lokalt eller den riktiga urlen appen har i produktion. För att det skall fungera att köra lokalt måste både react applikationen (startas med npm run dev) och express applikationen vara igång (startas med node app.mjs) samtidigt.
 
-## Set up a react project and make tests
+```
+import api_url from "../url.js";
+import { useState, useEffect } from "react";
 
-To create a new react project
-npm create vite@latest myproject
+function AllDocs({ onEdit }) {
+    const [docs, setDocs] = useState([]);
 
-Install dependencies
-npm install
+    useEffect(() => {
+      fetch(`${api_url}/all`)
+        .then(res => res.json())
+        .then(data => setDocs(data.data));
+    }, []);
 
-Remove boilerplate code from App.jsx and add a h1
-function App() {
-  return (
-    <>
-      <h1>Hello</h1>
-    </>
-  )
+    return (
+        <div>
+            <h2 className="title">All documents</h2>
+            <ul className="list">
+                {docs.map(doc => (
+                    <li key={doc.id}>
+                        <strong>{doc.title}</strong>
+                        {onEdit && (<button className="list-button" onClick={() => onEdit(doc)}>Edit</button>)}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    )
 }
-export default App
+export default AllDocs;
+```
 
-Start server to see that everything works
-npm run dev
+# Testning i React
+
+## Installera beroenden
+
+För att kunna skriva tester krävs verktyg och vi har valt att använda Vitest
+ihop med Istanbul. Vitest är själva test ramverket medan Istanbul används för att generera täcknings rapporter. Jsdom 
+
+Börja med att installera verktygen.
 
 
-## Install dependencies
-
-Install vitest
 npm install -D vitest
 
 Install jsdom
@@ -70,6 +86,21 @@ npm install -D @testing-library/user-event
 
 Install istanbul for coverage report
 npm install -D @vitest/coverage-istanbul
+
+```
+function App() {
+  return (
+    <>
+      <h1>Hello</h1>
+    </>
+  )
+}
+export default App
+```
+
+
+
+
 
 ## Setting up environment
 
@@ -133,3 +164,10 @@ https://testing-library.com/docs/user-event/setup/?utm_source=chatgpt.com
 https://vitest.dev/guide/browser/interactivity-api
 https://stackoverflow.com/questions/60113292/when-to-use-act-in-jest-unit-tests-with-react-dom
 https://runthatline.com/how-to-mock-fetch-api-with-vitest/
+
+
+
+npm install styled-components
+
+
+<!-- npm i react-router-dom -->

@@ -1,11 +1,12 @@
-import "./App.css";
-import { useState } from 'react'
+import "./index.css";
+import { useState } from 'react';
 import Nav from "./components/Nav";
 import UpdateDoc from "./components/UpdateDoc";
 import DeleteDoc from './components/DeleteDoc'
 import AllDocs from "./components/AllDocs";
 import CreateDoc from "./components/CreateDoc";
 import About from "./components/About";
+import Header from "./components/Header";
 
 function App() {
   const [view, setView] = useState("editor");
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <div className='container'>
+      <Header />
       <Nav current={view} onNavigate={setView} />
 
       <div className='editor'>

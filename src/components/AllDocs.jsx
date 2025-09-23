@@ -1,4 +1,4 @@
-import "./AllDocs.css";
+import Wrapper from '../assets/wrappers/AllDocs.js';
 import api_url from "../url.js";
 import { useState, useEffect } from "react";
 
@@ -12,7 +12,7 @@ function AllDocs({ onEdit }) {
     }, []);
 
     return (
-        <div>
+        <Wrapper>
             <h2 className="title">All documents</h2>
             <ul className="list">
                 {docs.map(doc => (
@@ -22,8 +22,7 @@ function AllDocs({ onEdit }) {
                     </li>
                 ))}
             </ul>
-        </div>
+        </Wrapper>
     )
 }
-
 export default AllDocs;

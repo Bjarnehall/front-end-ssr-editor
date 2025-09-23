@@ -1,22 +1,29 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event';
 import DeleteDoc from './DeleteDoc'
+import api_url from "../url.js";
 
-global.handleSubmit = vi.fn((e) =>
-    e.preventDefault()
+
+const preselectedDoc = {
+    id: 1,
+};
+
+global.fetch = vi.fn(() =>
+    Promise.resolve({
+    json: () => Promise.resolve({}),
+    })
 );
 
-test('Clicks button classname "delete-button" check if clicked hiddenInput has value', async () => {
-    render(<DeleteDoc preselectedDoc={{ id: '1' }}/>);
-    
+test(' ', async () => {
     const user = userEvent.setup();
-    const form = document.querySelector('form');
-    const button = screen.getByText(/Delete document/);
-    const hiddenInput = screen.getByDisplayValue('1');
-    
-    form.addEventListener('submit', handleSubmit);
+    render(<DeleteDoc preselectedDoc={preselectedDoc} />);
+
+    const button = screen.getByRole('button', { name: /Delete document/});
+
     await user.click(button);
-    
-    expect(handleSubmit).toHaveBeenCalledTimes(1);
-    expect(hiddenInput).toBeInTheDocument();
+
+    expect(global.fetch).toHaveBeenCalledWith(
+        `${api_url}/api/delete/1`,
+        { method: "POST" }
+    )
 });

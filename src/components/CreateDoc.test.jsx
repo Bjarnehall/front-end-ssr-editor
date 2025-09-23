@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event';
 import CreateDoc from './CreateDoc'
+import api_url from "../url.js";
 
 test('Has an H2 "title" of "Create new document" classname "title" is visible', () => {
         render(<CreateDoc />)
@@ -51,7 +52,7 @@ test('Submit title and content to create a document', async () => {
     expect(button).toBeVisible();
     expect(global.fetch).toHaveBeenCalledTimes(1);
     expect(global.fetch).toHaveBeenCalledWith(
-        'http://localhost:8080/api/create',
+        `${api_url}/api/create`,
         expect.objectContaining({
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

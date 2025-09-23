@@ -1,4 +1,4 @@
-import "./CreateDoc.css";
+import Wrapper from '../assets/wrappers/CreateDoc.js';
 import api_url from "../url.js";
 import { useState } from "react";
 
@@ -24,6 +24,7 @@ function CreateDoc() {
     }
 
     return (
+        <Wrapper>
         <form onSubmit={handleSubmit}>
             <h2 className="title">Create new document</h2>
 
@@ -47,7 +48,7 @@ function CreateDoc() {
             <button className="create-button" type="submit">Create Document</button>
             </div>
         </form>
-        
+        </Wrapper>        
     )
 }
 

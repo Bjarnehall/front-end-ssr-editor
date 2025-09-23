@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import "./CreateDoc.css";
+import { useState } from "react";
 
 function CreateDoc() {
 
@@ -8,6 +9,8 @@ function CreateDoc() {
 
     function handleSubmit(e) {
         e.preventDefault();
+
+        alert("Document was created!");
 
         fetch(`http://localhost:8080/api/create`, {
             method: "POST",
@@ -21,26 +24,29 @@ function CreateDoc() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <h2>Skapa nytt dokument</h2>
+            <h2 className="title">Create new document</h2>
 
-            <label>Titel</label><br/>
+            <div className="editor-form">
+            <label htmlFor="title">Document Title</label><br/>
             <input
+                id="title"
                 type="text"
                 value={title}
                 onChange={e => setTitle(e.target.value)}
             /><br/>
 
-
-            <label>Innehåll</label><br/>
-            <input
-              type="text"
-              value={content}
-              onChange={e => setContent(e.target.value)}
+            <label htmlFor="content">Document Text</label><br/>
+            <textarea
+                id="content"
+                type="text"
+                value={content}
+                onChange={e => setContent(e.target.value)}
             /><br/>
 
-            <button type="submit">Skapa</button>
-            
+            <button className="create-button" type="submit">Create Document</button>
+            </div>
         </form>
+        
     )
 }
 

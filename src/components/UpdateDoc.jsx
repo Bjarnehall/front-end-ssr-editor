@@ -1,65 +1,45 @@
-import { useState, useEffect } from "react";
-// Väljer jobba med med useState för lokal komponent state
-// För att smidigt uppdatera värden
-// useEfect för sid-effelter, hämta data från API efter render
-// Det som händer efter värden uppdateras
+import "./UpdateDoc.css";
+import { useState } from "react";
 
-function UpdateDoc() {
-    const [docs, setDocs] = useState([]);
-    const [id, setId] = useState("");
-    const [content, setContent] = useState("");
-
-    useEffect(() => {
-      fetch("http://localhost:8080/all")
-        .then(res => res.json())
-        .then(data => setDocs(data.data));
-    }, []);
-
-    function handleSelect(e) {
-        const selectedId = e.target.value;
-
-        setId(selectedId);
-
-        const selectedDoc = docs.find(doc => String(doc.id) === selectedId);
-
-        if (selectedDoc) {
-            setContent(selectedDoc.content);
-        }
-    }
+function UpdateDoc( {preselectedDoc }) {
+    const [title, setTitle] = useState(preselectedDoc.title);
+    const [content, setContent] = useState(preselectedDoc.content);
 
     //Funktion för att hantera ett submit
     function handleSubmit(e) {
         // Förhindra ladda om sidan och göra fetch
         e.preventDefault();
 
-        fetch(`http://localhost:8080/api/update/${id}`, {
+        alert("Document was saved!");
+
+        fetch(`http://localhost:8080/api/update/${preselectedDoc.id}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ content })
+            body: JSON.stringify({ title, content })
         });
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>Välj dokument</label><br/>
-            <select value={id} onChange={handleSelect}>
-              <option value="">-- Välj --</option>
-              {docs.map(doc => (
-                <option key={doc.id} value={doc.id}>{doc.title}</option>
-              ))}
-            </select><br/>
+        <div className="editor-form">
+            <form onSubmit={handleSubmit}>
+                <label>Document Title</label><br/>
+                <input
+                type="text"
+                value={title}
+                onChange={e => setTitle(e.target.value)}
+                /><br/>
 
-            <label>Ny text</label><br/>
-            <input
-              type="text"
-              value={content}
-              onChange={e => setContent(e.target.value)}
-            /><br/>
-
-            <button type="submit">Uppdatera</button>
-            
-        </form>
-    )
+                <label>Document Text</label><br/>
+                <textarea
+                type="text"
+                value={content}
+                onChange={e => setContent(e.target.value)}
+                /><br/>
+                
+                <button className="update-button" type="submit">Save document</button>
+            </form>
+        </div>
+    );
 }
 
 export default UpdateDoc;

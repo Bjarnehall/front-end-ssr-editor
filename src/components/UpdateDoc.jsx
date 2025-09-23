@@ -12,7 +12,7 @@ function UpdateDoc( {preselectedDoc }) {
 
         alert("Document was saved!");
 
-        fetch(`http://localhost:8080/api/update/${preselectedDoc.id}`, {
+        fetch(`https://ssr-editor-backend-d6a3fxdzgce8h0dv.northeurope-01.azurewebsites.net/api/update/${preselectedDoc.id}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ title, content })

@@ -12,7 +12,7 @@ function CreateDoc() {
 
         alert("Document was created!");
 
-        fetch(`http://localhost:8080/api/create`, {
+        fetch(`https://ssr-editor-backend-d6a3fxdzgce8h0dv.northeurope-01.azurewebsites.net/api/create`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ title, content })

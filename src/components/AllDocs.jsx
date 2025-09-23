@@ -5,7 +5,7 @@ function AllDocs({ onEdit }) {
     const [docs, setDocs] = useState([]);
 
     useEffect(() => {
-      fetch("http://localhost:8080/all")
+      fetch("https://ssr-editor-backend-d6a3fxdzgce8h0dv.northeurope-01.azurewebsites.net/all")
         .then(res => res.json())
         .then(data => setDocs(data.data));
     }, []);

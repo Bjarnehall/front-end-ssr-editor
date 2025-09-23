@@ -1,4 +1,4 @@
-import "./UpdateDoc.css";
+import Wrapper from '../assets/wrappers/UpdateDoc.js';
 import api_url from "../url.js";
 import { useState } from "react";
 
@@ -21,25 +21,27 @@ function UpdateDoc( {preselectedDoc }) {
     }
 
     return (
-        <div className="editor-form">
-            <form onSubmit={handleSubmit}>
-                <label>Document Title</label><br/>
-                <input
-                type="text"
-                value={title}
-                onChange={e => setTitle(e.target.value)}
-                /><br/>
+        <Wrapper>
+            <div className="editor-form">
+                <form onSubmit={handleSubmit}>
+                    <label>Document Title</label><br/>
+                    <input
+                    type="text"
+                    value={title}
+                    onChange={e => setTitle(e.target.value)}
+                    /><br/>
 
-                <label>Document Text</label><br/>
-                <textarea
-                type="text"
-                value={content}
-                onChange={e => setContent(e.target.value)}
-                /><br/>
-                
-                <button className="update-button" type="submit">Save document</button>
-            </form>
-        </div>
+                    <label>Document Text</label><br/>
+                    <textarea
+                    type="text"
+                    value={content}
+                    onChange={e => setContent(e.target.value)}
+                    /><br/>
+                    
+                    <button className="update-button" type="submit">Save document</button>
+                </form>
+            </div>
+        </Wrapper>
     );
 }
 

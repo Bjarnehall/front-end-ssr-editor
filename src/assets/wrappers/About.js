@@ -1,0 +1,19 @@
+import styled from 'styled-components';
+
+const Wrapper = styled.section`
+    .about {
+        margin: 0 10%;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        color: #FFF;
+    }
+    .presentation {
+        margin: 1.35rem 10%;
+        line-height: 1.5;
+    }
+    .authors {
+        margin-top: 1.5rem;
+        font-size: 0.75rem;
+    }
+`;
+
+export default Wrapper;

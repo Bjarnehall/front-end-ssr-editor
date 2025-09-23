@@ -1,5 +1,5 @@
-import "./App.css";
-import { useState } from 'react'
+import "./index.css";
+import { useState } from 'react';
 import Nav from "./components/Nav";
 import UpdateDoc from "./components/UpdateDoc";
 import DeleteDoc from './components/DeleteDoc'

@@ -164,3 +164,10 @@ https://testing-library.com/docs/user-event/setup/?utm_source=chatgpt.com
 https://vitest.dev/guide/browser/interactivity-api
 https://stackoverflow.com/questions/60113292/when-to-use-act-in-jest-unit-tests-with-react-dom
 https://runthatline.com/how-to-mock-fetch-api-with-vitest/
+
+
+
+npm install styled-components
+
+
+<!-- npm i react-router-dom -->

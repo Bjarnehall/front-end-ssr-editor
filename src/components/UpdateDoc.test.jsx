@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event';
 import UpdateDoc from './UpdateDoc'
+import api_url from "../url.js";
 
 
 const preselectedDoc = {
@@ -40,7 +41,7 @@ test(' ', async () => {
     await user.click(button);
 
     expect(global.fetch).toHaveBeenCalledWith(
-        "http://localhost:8080/api/update/1",
+        `${api_url}/api/update/1`,
         expect.objectContaining({
             method: "POST",
             headers: { "Content-Type": "application/json" },

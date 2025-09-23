@@ -1,4 +1,4 @@
-import "./DeleteDoc.css";
+import Wrapper from '../assets/wrappers/DeleteDoc.js';
 import api_url from "../url.js";
 function DeleteDoc({ preselectedDoc, onDelete }) {
 
@@ -24,9 +24,11 @@ function DeleteDoc({ preselectedDoc, onDelete }) {
   }
 
   return (
-    <div className="delete-doc-form">
-      <button className="delete-button" onClick={handleSubmit}>Delete document</button>
-    </div>
+    <Wrapper>
+      <div className="delete-doc-form">
+        <button className="delete-button" onClick={handleSubmit}>Delete document</button>
+      </div>
+    </Wrapper>
   );
 }
 

@@ -9,6 +9,14 @@
     --color-two: #2a2a2a;
 }
 
+body {
+    background-color: #1a1a1a;
+}
+
+.header {
+    background-color: var(--color-one);
+}
+
 .container {
     background-color: #1a1a1a;
     height: 100vh;
@@ -17,7 +25,7 @@
 .editor {
     background-color: var(--color-one);
     margin: 0 10%;
-    height: 90vh;
+    height: 78vh;
 }
 
 .title {

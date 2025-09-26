@@ -16,9 +16,9 @@ const Wrapper = styled.section`
         border: none;
         color: #FFF;
         width: 100%;
-        padding: 0.35rem;
-        margin-top: 0.35rem;
-        margin-bottom: 0.35rem;
+        padding: var(--small-space);
+        margin-top: var(--small-space);
+        margin-bottom: var(--small-space);
     }
     textarea {
         background-color: var(--color-two);
@@ -26,16 +26,25 @@ const Wrapper = styled.section`
         color: #FFF;
         height: 200px;
         width: 100%;
-        padding: 0.35rem;
-        margin-top: .35rem;
+        padding: var(--small-space);
+        margin-top: var(--small-space);
     }
     .update-button {
         margin-top: 1.35rem;
-        padding: 0.25rem;
+        padding: var(--small-space);
         width: 100%;
         font-weight: bold;
         background-color: var(--color-two);
-        color: limegreen;
+        color: var(--color-three);
+        border: solid 1px #ffffff55;
+    }
+    .create-button {
+        margin-top: 1.35rem;
+        padding: var(--small-space);
+        width: 100%;
+        font-weight: bold;
+        background-color: var(--color-two);
+        color: var(--color-three);
         border: solid 1px #ffffff55;
     }
 `;

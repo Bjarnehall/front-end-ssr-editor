@@ -7,6 +7,9 @@
 :root {
     --color-one: #333;
     --color-two: #2a2a2a;
+    --color-three: limegreen;
+
+    --small-space: 0.3rem;
 }
 
 body {
@@ -42,7 +45,7 @@ body {
     margin-top: 1.35rem;
     font-weight: bold;
     background-color: var(--color-two);
-    color: limegreen;
+    color: var(--color-three);
 }
 
 .editor-form {
@@ -55,16 +58,6 @@ body {
 label {
     color: #FFF;
     font-weight: bold;
-}
-
-input {
-    background-color: var(--color-two);
-    border: none;
-    color: #FFF;
-    width: 100%;
-    padding: 0.35rem;
-    margin-top: 0.35rem;
-    margin-bottom: 0.35rem;
 }
 
 textarea {

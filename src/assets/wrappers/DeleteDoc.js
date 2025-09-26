@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.section`
     .delete-button {
-        padding: 0.25rem;
+        padding: var(--small-space);
         width: 80%;
         margin-left: 10%;
         font-weight: bold;

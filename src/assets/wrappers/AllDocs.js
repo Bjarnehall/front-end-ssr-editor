@@ -11,7 +11,7 @@ const Wrapper = styled.section`
     .list li {
         margin-top: 0.5rem;
         background-color: var(--color-two);
-        padding: 0.35rem;
+        padding: var(--small-space);
 
         display: flex;
         justify-content: space-between;
@@ -19,11 +19,11 @@ const Wrapper = styled.section`
     }
 
     .list-button {
-        padding: 0.25rem;
+        padding: var(--small-space);
         width: 90px;
         font-weight: bold;
         background-color: var(--color-two);
-        color: limegreen;
+        color: var(--color-three);
     }
 `;
 

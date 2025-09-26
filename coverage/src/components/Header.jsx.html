@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">76.92% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>10/13</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>4/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">81.81% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>9/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -103,21 +103,21 @@
 <a name='L38'></a><a href='#L38'>38</a>
 <a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -132,8 +132,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -141,37 +141,37 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {useState, useEffect } from "react";
 &nbsp;
-const colorCat = <span class="cstat-no" title="statement not covered" >"limegreen";</span>
-const colorEye = <span class="cstat-no" title="statement not covered" >"yellow";</span>
+const colorCat = "limegreen";
+const colorEye = "yellow";
 &nbsp;
-function <span class="fstat-no" title="function not covered" >Cat ({</span> viewBox }) {
-    const [eyeColor, setColor] = <span class="cstat-no" title="statement not covered" >useState(colorEye);</span>
-<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
-        const interval = <span class="cstat-no" title="statement not covered" >setInterval(<span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
+function Cat ({ viewBox }) {
+    const [eyeColor, setColor] = useState(colorEye);
+    useEffect(() =&gt; {
+        const interval = setInterval(<span class="fstat-no" title="function not covered" >() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >            setColor(colorCat);</span>
 <span class="cstat-no" title="statement not covered" >            setTimeout(<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" >s</span>etColor(colorEye), 3</span>00);</span>
         }, 3000);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        return <span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" >c</span>learInterval(interval);</span></span>
+        return () =&gt; clearInterval(interval);
     }, []);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
-        &lt;svg width="100%" height="100%" viewBox={viewBox}&gt;
+    return (
+        &lt;svg data-testid="header-svg" width="100%" height="100%" viewBox={viewBox}&gt;
             &lt;circle r="12" cx="40" cy="40" fill={colorCat}/&gt;
             &lt;circle r="8" cx="40" cy="22" fill={colorCat}/&gt;
             &lt;circle r="2.5" cx="43.5" cy="21" fill={eyeColor} /&gt;
             &lt;circle r="2.5" cx="36.5" cy="21" fill={eyeColor} /&gt;
             &lt;polygon points="34,10 33,20 38,15" fill={colorCat} /&gt;
             &lt;polygon points="46,10 48,20 42,15" fill={colorCat} /&gt;
-            &lt;text x="60" y="40" fill={colorCat} font-size="30" font-family="sans-serif"&gt;LOST IN REACT&lt;/text&gt;
-            &lt;text x="200" y="55" fill="white" font-size="15" font-family="sans-serif"&gt;The Editor&lt;/text&gt;
+            &lt;text x="60" y="40" fill={colorCat} fontSize="30" fontFamily="sans-serif"&gt;LOST IN REACT&lt;/text&gt;
+            &lt;text x="200" y="55" fill="white" fontSize="15" fontFamily="sans-serif"&gt;The Editor&lt;/text&gt;
         &lt;/svg&gt;
     );
 }
 &nbsp;
-function <span class="fstat-no" title="function not covered" >Header() {</span>
-    const [viewBox] = <span class="cstat-no" title="statement not covered" >useState("0 0 1000 60");</span>
-<span class="cstat-no" title="statement not covered" >    return (</span>
+function Header() {
+    const [viewBox] = useState("0 0 1000 60");
+    return (
         &lt;div className="header"&gt;
             &lt;Cat viewBox={viewBox}/&gt;
         &lt;/div&gt;
@@ -184,7 +184,7 @@ export default Header</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-09-24T10:06:41.901Z
+                at 2025-09-26T06:58:39.359Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

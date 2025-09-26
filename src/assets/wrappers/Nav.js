@@ -7,19 +7,20 @@ const Wrapper = styled.section`
         margin-bottom: 1rem;
         background: var(--color-one);
         padding: 0.5rem;
+        border-bottom: 5px solid var(--color-three);
     }
     nav button {
     color: white;
     background: transparent;
     border: 1px solid white;
-    padding: 0.3rem 0.6rem;
+    padding: 0.35rem 0.6rem;
     cursor: pointer;
-    margin: 0.25rem;
+    margin: var(--small-space);
     }
 
     nav button:disabled {
-    color: limegreen;
-    border-color: limegreen;
+    color: var(--color-three);
+    border-color: var(--color-three);
     }
 `;
 

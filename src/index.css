@@ -8,12 +8,13 @@
     --color-one: #333;
     --color-two: #2a2a2a;
     --color-three: limegreen;
+    --color-four: #1a1a1a;
 
     --small-space: 0.3rem;
 }
 
 body {
-    background-color: #1a1a1a;
+    background-color: var(--color-four);
 }
 
 .header {
@@ -21,7 +22,7 @@ body {
 }
 
 .container {
-    background-color: #1a1a1a;
+    background-color: var(--color-four);
     height: 100vh;
 }
 

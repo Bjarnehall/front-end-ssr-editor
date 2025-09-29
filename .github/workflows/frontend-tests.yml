@@ -24,3 +24,6 @@ jobs:
 
       - name: Run frontend tests with coverage
         run: npm run coverage
+
+      - name: Build app
+        run: npm run deploy

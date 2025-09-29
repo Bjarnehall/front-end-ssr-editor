@@ -24,3 +24,7 @@ jobs:
 
       - name: Run frontend tests with coverage
         run: npm run coverage
+
+      - name: Build app
+        if: github.ref == 'refs/heads/main'
+        run: npm run deploy

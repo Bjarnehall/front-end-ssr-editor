@@ -3,6 +3,16 @@ import userEvent from '@testing-library/user-event';
 import CreateDoc from './CreateDoc'
 import api_url from "../url.js";
 
+beforeAll(() => {
+  window.alert = vi.fn();
+});
+
+global.fetch = vi.fn(() =>
+    Promise.resolve({
+        json: () => Promise.resolve(),
+    }),
+);
+
 test('Has an H2 "title" of "Create new document" classname "title" is visible', () => {
         render(<CreateDoc />)
         
@@ -29,14 +39,6 @@ test('Has a label of "Document Text" is visible', () => {
     expect(labelDocumentText.tagName).toBe('LABEL');
     expect(labelDocumentText).toBeVisible();
 });
-
-global.fetch = vi.fn(() =>
-    Promise.resolve({
-        json: () => Promise.resolve(),
-    }),
-);
-
-global.alert = vi.fn();
 
 test('Submit title and content to create a document', async () => {
     render(<CreateDoc />);

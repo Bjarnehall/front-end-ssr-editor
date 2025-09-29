@@ -3,6 +3,9 @@ import userEvent from '@testing-library/user-event';
 import DeleteDoc from './DeleteDoc'
 import api_url from "../url.js";
 
+beforeAll(() => {
+  window.alert = vi.fn();
+});
 
 const preselectedDoc = {
     id: 1,

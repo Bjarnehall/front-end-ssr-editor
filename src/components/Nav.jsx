@@ -1,12 +1,15 @@
+import { Link } from "react-router-dom";
 import Wrapper from '../assets/wrappers/Nav';
 
-function Nav({ current, onNavigate }) {
+function Nav() {
   return (
     <Wrapper>
       <nav>
-        <button onClick={() => onNavigate("editor")} disabled={current === "editor"}>Editor</button>
-        <button onClick={() => onNavigate("create")} disabled={current === "create"}>Create New</button>
-        <button onClick={() => onNavigate("about")}   disabled={current === "about"}>About</button>
+        <Link to="/docs">Editor</Link>
+        <Link to="/create">Create New</Link>
+        <Link to="/about">About</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/register">Register</Link>
       </nav>
     </Wrapper>
   );

@@ -1,3 +1,4 @@
+import api_url from "../url.js";
 import Wrapper from '../assets/wrappers/UpdateCreateDoc.js';
 import { useState } from "react";
 
@@ -9,7 +10,7 @@ function Register() {
     const [confirmPassword, setConfirmPassword] = useState("");
 
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
 
         if (password !== confirmPassword) {
@@ -17,13 +18,31 @@ function Register() {
             return;
         }
 
-        alert(`Register attempt with username: ${username}, email: ${email}`);
+        try {
+            const response = await fetch(`${api_url}/api/users/`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, email, password })
+            });
 
-        // fetch(`${api_url}/api/create`, {
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify({ title, content })
-        // });
+            if (!response.ok) {
+                const errorText = await response.text();
+                alert("Registration failed: " + errorText);
+                return;
+            }
+
+            const data = await response.json();
+            alert("User registered successfully with id: " + data.insertedId);
+
+            setUsername("");
+            setEmail("");
+            setPassword("");
+            setConfirmPassword("");
+
+        } catch (error) {
+            console.error(error);
+            alert("An error occurred during registration");
+        }
     }
 
     return (

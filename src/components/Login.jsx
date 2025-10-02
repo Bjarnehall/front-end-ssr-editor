@@ -1,3 +1,4 @@
+import api_url from "../url.js";
 import Wrapper from '../assets/wrappers/UpdateCreateDoc.js';
 import { useState } from "react";
 
@@ -7,16 +8,33 @@ function Login() {
     const [password, setPassword] = useState("");
 
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
 
-        alert(`Login attempt with username: ${username}, password: ${password}`);
+        try {
+            const response = await fetch(`${api_url}/api/users/login/`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, password })
+            });
 
-        // fetch(`${api_url}/api/create`, {
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify({ title, content })
-        // });
+            if (!response.ok) {
+                const errorText = await response.text();
+                alert("Login failed: " + errorText);
+                return;
+            }
+
+            const data = await response.json();
+            alert("Login successfull! Token: " + data.webtoken);
+
+            localStorage.setItem("token", data.webtoken);
+
+        } catch (error) {
+            console.error(error);
+            alert("An error occurred during login");
+
+        }
+
     }
 
     return (

@@ -10,6 +10,7 @@ import About from "./components/About";
 import Header from "./components/Header";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import UserList from "./components/UserList";
 
 function App() {
   const [editDoc, setDoc] = useState(null);
@@ -52,6 +53,8 @@ function App() {
           <Route path="/login" element={<Login />} />
 
           <Route path="/register" element={<Register />} />
+
+          <Route path="/users" element={<UserList />} />
         </Routes>
       </div>
     </div>

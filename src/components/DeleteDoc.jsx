@@ -7,7 +7,7 @@ function DeleteDoc({ preselectedDoc, onDelete }) {
 
     try {
       const response = await fetch(`${api_url}/api/delete/${preselectedDoc.id}`, {
-      method: "POST",
+      method: "DELETE",
       });
 
       const data = await response.json();

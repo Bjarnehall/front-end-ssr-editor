@@ -8,7 +8,7 @@ function AllDocs({ onEdit }) {
     useEffect(() => {
       fetch(`${api_url}/all`)
         .then(res => res.json())
-        .then(data => setDocs(data.data));
+        .then(data => setDocs(data));
     }, []);
 
     return (

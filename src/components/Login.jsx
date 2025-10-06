@@ -25,9 +25,9 @@ function Login() {
             }
 
             const data = await response.json();
-            alert("Login successfull! Token: " + data.webtoken);
+            alert("Login successfull! Token: " + data.accesstoken);
 
-            localStorage.setItem("token", data.webtoken);
+            localStorage.setItem("token", data.accesstoken);
 
         } catch (error) {
             console.error(error);

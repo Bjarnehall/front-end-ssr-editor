@@ -8,7 +8,21 @@ function UserList() {
     useEffect(() => {
       async function fetchUsers() {
           try {
-            const response = await fetch(`${api_url}/api/users/`);
+            const token = localStorage.getItem("token");
+
+            const response = await fetch(`${api_url}/api/users/`, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error("Error get/users", errorText);
+                return;
+            }
+            
             const data = await response.json();
             setUsers(data);
 

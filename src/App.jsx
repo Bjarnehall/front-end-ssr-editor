@@ -12,7 +12,10 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import UserList from "./components/UserList";
 
+import { useNavigate } from "react-router-dom";
+
 function App() {
+  const navigate = useNavigate();
   const [editDoc, setDoc] = useState(null);
 
   return (
@@ -28,7 +31,7 @@ function App() {
 
           <Route 
             path="/docs" 
-            element={<AllDocs onEdit={doc => setDoc(doc)} />} 
+            element={<AllDocs onEdit={doc => { setDoc(doc); navigate("/edit"); }} />} 
           />
 
           <Route 
@@ -37,14 +40,15 @@ function App() {
               <>
                 <button 
                   className="back-button" 
-                  onClick={() => setDoc(null)}
+                  onClick={() => navigate("/docs")}
                 >
                   Back to documents
                 </button>
+                
                 <UpdateDoc preselectedDoc={editDoc} />
                 <DeleteDoc 
                   preselectedDoc={editDoc} 
-                  onDelete={() => {setDoc(null);}} 
+                  onDelete={() => { navigate("/docs"); }} 
                 />
               </>
             } 

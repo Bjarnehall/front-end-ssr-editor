@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event';
-import CreateDoc from './CreateDoc'
-import api_url from "../url.js";
+import CreateDoc from '../docs/CreateDoc.jsx'
+import api_url from "../../url.js";
 
 beforeAll(() => {
   window.alert = vi.fn();

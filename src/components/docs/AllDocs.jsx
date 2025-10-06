@@ -1,5 +1,5 @@
-import Wrapper from '../assets/wrappers/AllDocs.js';
-import api_url from "../url.js";
+import Wrapper from '../../assets/wrappers/AllDocs.js';
+import api_url from "../../url.js";
 import { useState, useEffect } from "react";
 
 function AllDocs({ onEdit }) {

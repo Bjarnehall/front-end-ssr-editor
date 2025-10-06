@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import Wrapper from '../assets/wrappers/AllUsers.js';
-import api_url from "../url.js";
+import Wrapper from '../../assets/wrappers/AllUsers.js';
+import api_url from "../../url.js";
 import EditUser from "./EditUser";
 import DeleteUser from "./DeleteUser";
 
@@ -10,11 +10,25 @@ function UserList() {
 
     async function fetchUsers() {
         try {
-            const response = await fetch(`${api_url}/api/users/`);
+            const response = await fetch(`${api_url}/api/users/`, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                }
+            });
+
             const data = await response.json();
-            setUsers(data);
+
+            console.log("User data:", data);
+
+            if (Array.isArray(data)) {
+                setUsers(data);
+            } else {
+                setUsers([]);
+            }
         } catch (error) {
             console.error("Error fetching users:", error);
+            setUsers([]);
         }
     }
 

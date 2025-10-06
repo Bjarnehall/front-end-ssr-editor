@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event';
 import DeleteDoc from './DeleteDoc'
-import api_url from "../url.js";
+import api_url from "../../url.js";
 
 beforeAll(() => {
   window.alert = vi.fn();

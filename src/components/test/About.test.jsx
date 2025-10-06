@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import About from './About'
+import About from '../About'
 
 test('Has an H2 classname "title" of "About this project" child of classname "about"', () => {
     render(<About />);

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event';
 import UpdateDoc from './UpdateDoc'
-import api_url from "../url.js";
+import api_url from "../../url.js";
 
 
 const preselectedDoc = {

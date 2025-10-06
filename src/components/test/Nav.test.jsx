@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import Nav from './Nav'
+import Nav from '../Nav'
 
 test('Has button of navigation "Editor, Create New, About" is visible', () => {
     render(<Nav />);

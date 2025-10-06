@@ -1,5 +1,5 @@
-import Wrapper from '../assets/wrappers/DeleteDoc.js';
-import api_url from "../url.js";
+import Wrapper from '../../assets/wrappers/DeleteDoc.js';
+import api_url from "../../url.js";
 function DeleteDoc({ preselectedDoc, onDelete }) {
 
   async function handleSubmit(e) {

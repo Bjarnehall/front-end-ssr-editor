@@ -1,4 +1,4 @@
-import api_url from "../url.js";
+import api_url from "../../url.js";
 
 function DeleteUser({ id, onDelete }) {
     async function handleDelete() {

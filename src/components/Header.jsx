@@ -30,9 +30,34 @@ function Cat ({ viewBox }) {
 
 function Header() {
     const [viewBox] = useState("0 0 1000 60");
+    const [username, setUsername] = useState(localStorage.getItem("username") || null);
+
+    useEffect(() => {
+        const checkLogin = () => setUsername(localStorage.getItem("username"));
+        window.addEventListener("storage", checkLogin);
+        return () => window.removeEventListener("storage", checkLogin);
+    }, []);
+
+    function handleLogout() {
+        localStorage.removeItem("token");
+        localStorage.removeItem("username");
+        alert("You are now logged out.");
+        window.location.href = "/login";
+    }
+
     return (
         <div className="header">
             <Cat viewBox={viewBox}/>
+                <div className="user-status">
+                {username ? (
+                    <>
+                        <span>Logged in as <strong>{username}</strong></span>
+                        <button className="logout-button" onClick={handleLogout}>Logout</button>
+                    </>
+                ) : (
+                    <span>Not logged in</span>
+                )}
+            </div>
         </div>
     )
 }

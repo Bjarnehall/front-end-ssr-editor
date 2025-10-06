@@ -1,8 +1,11 @@
-import api_url from "../url.js";
-import Wrapper from '../assets/wrappers/UpdateCreateDoc.js';
+import api_url from "../../url.js";
+import Wrapper from '../../assets/wrappers/UpdateCreateDoc.js';
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+
+    const navigate = useNavigate();
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -25,9 +28,11 @@ function Login() {
             }
 
             const data = await response.json();
-            alert("Login successfull! Token: " + data.webtoken);
-
-            localStorage.setItem("token", data.webtoken);
+            localStorage.setItem("token", data.accesstoken);
+            localStorage.setItem("username", data.username);
+            console.log("Login response:", data);
+            alert("Login successful!");
+            navigate("/docs");
 
         } catch (error) {
             console.error(error);

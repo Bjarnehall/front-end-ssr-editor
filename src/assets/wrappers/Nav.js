@@ -22,6 +22,27 @@ const Wrapper = styled.section`
     color: var(--color-three);
     border-color: var(--color-three);
     }
+
+    .user-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: var(--color-three);
+    }
+
+    .logout-button {
+        background-color: var(--color-two);
+        color: var(--color-three);
+        font-weight: bold;
+        padding: var(--small-space);
+        border: none;
+        cursor: pointer;
+    }
+    
+    .logout-button:hover {
+        background-color: var(--color-three);
+        color: var(--color-two);
+}
 `;
 
 export default Wrapper;

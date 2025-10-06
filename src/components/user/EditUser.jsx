@@ -1,5 +1,5 @@
 import { useState } from "react";
-import api_url from "../url.js";
+import api_url from "../../url.js";
 
 function EditUser({ user, onUpdate}) {
     const [username, setUsername] = useState(user.username);

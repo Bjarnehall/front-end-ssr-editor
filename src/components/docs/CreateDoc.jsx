@@ -1,5 +1,5 @@
-import Wrapper from '../assets/wrappers/UpdateCreateDoc.js';
-import api_url from "../url.js";
+import Wrapper from '../../assets/wrappers/UpdateCreateDoc.js';
+import api_url from "../../url.js";
 import { useState } from "react";
 
 function CreateDoc() {

@@ -8,7 +8,11 @@ function AllDocs({ onEdit }) {
     const navigate = useNavigate();
 
     useEffect(() => {
-      fetch(`${api_url}/all`)
+      fetch(`${api_url}/all`, {
+        headers: {
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
+        }
+      })
         .then(res => res.json())
         .then(data => setDocs(data.data));
     }, []);

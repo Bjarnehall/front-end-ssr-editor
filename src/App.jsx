@@ -47,11 +47,14 @@ function App() {
                 >
                   Back to documents
                 </button>
-                <UpdateDoc preselectedDoc={editDoc} />
-                <DeleteDoc 
-                  preselectedDoc={editDoc} 
-                  onDelete={() => {setDoc(null);}} 
-                />
+
+                <div className="edit-section">
+                  <UpdateDoc preselectedDoc={editDoc} />
+                  <DeleteDoc 
+                    preselectedDoc={editDoc} 
+                    onDelete={() => {setDoc(null);}} 
+                  />
+                </div>
               </>
             } 
           />

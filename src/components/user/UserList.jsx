@@ -12,7 +12,6 @@ function UserList() {
         try {
             const response = await fetch(`${api_url}/api/users/`, {
                 headers: {
-                    "Content-Type": "application/json",
                     "Authorization": `Bearer ${localStorage.getItem("token")}`
                 }
             });

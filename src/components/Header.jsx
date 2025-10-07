@@ -1,4 +1,5 @@
 import {useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const colorCat = "limegreen";
 const colorEye = "yellow";
@@ -29,6 +30,7 @@ function Cat ({ viewBox }) {
 }
 
 function Header() {
+    const navigate = useNavigate();
     const [viewBox] = useState("0 0 1000 60");
     const [username, setUsername] = useState(localStorage.getItem("username") || null);
 
@@ -42,7 +44,7 @@ function Header() {
         localStorage.removeItem("token");
         localStorage.removeItem("username");
         alert("You are now logged out.");
-        window.location.href = "/login";
+        navigate("/login");
     }
 
     return (
@@ -52,7 +54,6 @@ function Header() {
                 {username ? (
                     <>
                         <span>Logged in as <strong>{username}</strong></span>
-                        <button className="logout-button" onClick={handleLogout}>Logout</button>
                     </>
                 ) : (
                     <span>Not logged in</span>

@@ -30,6 +30,7 @@ function Login() {
             const data = await response.json();
             localStorage.setItem("token", data.accesstoken);
             localStorage.setItem("username", data.username);
+            window.dispatchEvent(new Event("storage"));
             console.log("Login response:", data);
             alert("Login successful!");
             navigate("/docs");

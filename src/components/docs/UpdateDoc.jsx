@@ -1,8 +1,14 @@
 import Wrapper from '../../assets/wrappers/UpdateCreateDoc.js';
 import api_url from "../../url.js";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function UpdateDoc( {preselectedDoc }) {
+        if (!preselectedDoc) {
+            return <p style={{ color: "limegreen" }}>Select a document to edit.</p>;
+        }
+    
+    const navigate = useNavigate();
     const [title, setTitle] = useState(preselectedDoc.title);
     const [content, setContent] = useState(preselectedDoc.content);
     const [email, setEmail] = useState("");
@@ -16,9 +22,12 @@ function UpdateDoc( {preselectedDoc }) {
 
         fetch(`${api_url}/api/update/${preselectedDoc.id}`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { 
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+             },
             body: JSON.stringify({ title, content })
-        });
+        }).then(() => navigate("/docs"));
     }
 
     function handleInvite(e) {
@@ -28,7 +37,10 @@ function UpdateDoc( {preselectedDoc }) {
 
         fetch(`${api_url}/api/invite`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { 
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+             },
             body: JSON.stringify({
                 email: email,
                 doc_id: preselectedDoc.id
@@ -59,9 +71,7 @@ function UpdateDoc( {preselectedDoc }) {
                     <button className="update-button" type="submit">Save document</button>
                 </form>
 
-                <hr/><br/>
-
-                <form onSubmit={handleInvite}>
+                <div style={{ marginTop: "1rem" }}>
                     <label>Invite collaborator (email)</label><br/>
                     <input 
                         type="email"
@@ -70,7 +80,7 @@ function UpdateDoc( {preselectedDoc }) {
                         required
                     /><br/>
                     <button className="create-button" type="submit">Send Invitation</button>
-                </form>
+                </div>
             </div>
         </Wrapper>
     );

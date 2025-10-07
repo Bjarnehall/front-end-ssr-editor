@@ -1,8 +1,11 @@
 import api_url from "../../url.js";
 import Wrapper from '../../assets/wrappers/UpdateCreateDoc.js';
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
+
+    const navigate = useNavigate();
 
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
@@ -32,7 +35,16 @@ function Register() {
             }
 
             const data = await response.json();
-            alert("User registered successfully with id: " + data.insertedId);
+            alert("User registered successfully!");
+
+            if (data.accesstoken && data.username) {
+                localStorage.setItem("token", data.accesstoken);
+                localStorage.setItem("username", data.username);
+                window.dispatchEvent(new Event("storage"));
+                navigate("/docs");
+            } else {
+                ("/login");
+            }
 
             setUsername("");
             setEmail("");

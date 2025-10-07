@@ -6,7 +6,8 @@ export default defineConfig({
   server: {
     historyApiFallback: true
   },
-  base: '/front-end-ssr-editor/',
+  // base: '/front-end-ssr-editor/',
+  base: process.env.NODE_ENV === 'production' ? '/front-end-ssr-editor/' : '/',
   test: {
     environment: "jsdom",
     globals: true,

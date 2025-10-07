@@ -267,3 +267,25 @@ robust och enkel att fortsätta arbeta med.
 
 Vår applikation är driftsatt på github genom pages och finns att hitta https://bjarnehall.github.io/front-end-ssr-editor/
 
+## Krav 1 - Autentisering
+
+### Inlogning och registrering 
+ 
+- Login.jsx och Register.jsx hanterar inloggning/registrering via POST till /api/users/login/ och /api/users/register/.
+
+- Vid lyckad inloggning sparas användarens token i localStorage, och useNavigate används för att omdirigera användaren.
+
+- När användaren är inloggad visas användarnamn i headern samt en Logga ut-knapp. Det hämtas ut localStorage där token-information finns.
+
+- Logout rensar token och uppdaterar UI så att inloggade vyer döljs.
+
+- Åtkomst till dokument (lista, skapa, uppdatera) och “andra användare” kräver inloggning. För att förhindra obehörig åtkomst skapades ProtectedRoute.jsx. Denna komponent används runt dem sidor som kräver inloggning. 
+
+- Ej inloggad → försök att nå dessa sidor omdirigeras till /login.
+
+- I /users sidan kan man hantera olika användare genom att ändra eller ta bort användaren.
+
+- I sidan UpdateDoc.jsx hanteras nu både uppdatering av dokument samt inbjudningar. Man kan bjuda in en annan användare via e-post. Jag valde kombinera dessa ihop då inbjudan kopplas till det specifika dokumentets ID. 
+
+- När användare är inloggad visas namn samt möjlighet att logga ut i headern. Man kan visa, skapa och uppdatera dokument. Man kan se en lista och hantera användare. Man kan njuda in andra till specifika dokument. 
+

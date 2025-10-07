@@ -5,6 +5,7 @@ import { useState } from "react";
 function UpdateDoc( {preselectedDoc }) {
     const [title, setTitle] = useState(preselectedDoc.title);
     const [content, setContent] = useState(preselectedDoc.content);
+    const [email, setEmail] = useState("");
 
     //Funktion för att hantera ett submit
     function handleSubmit(e) {
@@ -18,6 +19,23 @@ function UpdateDoc( {preselectedDoc }) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ title, content })
         });
+    }
+
+    function handleInvite(e) {
+        e.preventDefault();
+
+        alert("Invitation was sent!");
+
+        fetch(`${api_url}/api/invite`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                email: email,
+                doc_id: preselectedDoc.id
+            })
+        });
+
+        setEmail("");
     }
 
     return (
@@ -39,6 +57,19 @@ function UpdateDoc( {preselectedDoc }) {
                     /><br/>
                     
                     <button className="update-button" type="submit">Save document</button>
+                </form>
+
+                <hr/><br/>
+
+                <form onSubmit={handleInvite}>
+                    <label>Invite collaborator (email)</label><br/>
+                    <input 
+                        type="email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        required
+                    /><br/>
+                    <button className="create-button" type="submit">Send Invitation</button>
                 </form>
             </div>
         </Wrapper>

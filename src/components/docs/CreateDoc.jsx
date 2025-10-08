@@ -13,7 +13,7 @@ function CreateDoc() {
 
         alert("Document was created!");
 
-        fetch(`${api_url}/api/create`, {
+        fetch(`${api_url}/api/doc/create`, {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json",

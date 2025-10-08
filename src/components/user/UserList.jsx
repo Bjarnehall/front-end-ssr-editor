@@ -10,7 +10,7 @@ function UserList() {
 
     async function fetchUsers() {
         try {
-            const response = await fetch(`${api_url}/api/users/`, {
+            const response = await fetch(`${api_url}/api/users/users`, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem("token")}`
                 }

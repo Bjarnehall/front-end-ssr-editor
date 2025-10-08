@@ -8,13 +8,17 @@ function AllDocs({ onEdit }) {
     const navigate = useNavigate();
 
     useEffect(() => {
-      fetch(`${api_url}/all`, {
+      fetch(`${api_url}/api/doc/getdocs/`, {
         headers: {
             "Authorization": `Bearer ${localStorage.getItem("token")}`
         }
       })
         .then(res => res.json())
-        .then(data => setDocs(data.data));
+        .then(data => setDocs(data.documents || []))
+        .catch(err => {
+            console.error("Error fetching documents:", err);
+            setDocs([]);
+        });
     }, []);
 
     return (
@@ -22,7 +26,7 @@ function AllDocs({ onEdit }) {
             <h2 className="title">All documents</h2>
             <ul className="list">
                 {docs.map(doc => (
-                    <li key={doc.id}>
+                    <li key={doc._id}>
                         <strong>{doc.title}</strong>
                         {onEdit && (
                             <button 

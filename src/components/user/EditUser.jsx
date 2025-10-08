@@ -8,9 +8,13 @@ function EditUser({ user, onUpdate}) {
 
     async function handleSave() {
         try {
-            const response = await fetch(`${api_url}/api/users/${user.id}`, {
+            console.log("Updating user with data:", { username, email });
+            const response = await fetch(`${api_url}/api/users/update/${user.id || user._id}`, {
                 method: "PUT",
-                headers: { "Content-Type": "application/json" },
+                headers: { 
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                },
                 body: JSON.stringify({ username, email })
             });
 
@@ -22,7 +26,7 @@ function EditUser({ user, onUpdate}) {
 
             alert("User updated successfully!");
             setIsEditing(false);
-            onUpdate;
+            onUpdate();
         } catch (error) {
             console.error("Error updating user:", error);
         }

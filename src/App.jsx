@@ -41,12 +41,12 @@ function App() {
             path="/edit" 
             element={
               <>
-                <button 
-                  className="back-button" 
-                  onClick={() => setDoc(null)}
-                >
-                  Back to documents
-                </button>
+              {/* <button 
+                className="back-button" 
+                onClick={() => navigate("/docs")}
+              >
+                Back to documents
+              </button> */}
 
                 <div className="edit-section">
                   <UpdateDoc preselectedDoc={editDoc} />

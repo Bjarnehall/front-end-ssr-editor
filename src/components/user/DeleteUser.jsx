@@ -5,10 +5,11 @@ function DeleteUser({ id, onDelete }) {
         if (!confirm("Are you sure you want to delete this user?")) return;
 
         try {
-            const response = await fetch(`${api_url}/api/users/${id}`, {
+            const response = await fetch(`${api_url}/api/users/delete/${id}`, {
                 method: "DELETE",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`
                 }
             });
 

@@ -2,6 +2,7 @@ import Wrapper from '../../assets/wrappers/UpdateCreateDoc.js';
 import api_url from "../../url.js";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import InviteUser from "../user/InviteUser";
 
 function UpdateDoc({ preselectedDoc }) {
     const navigate = useNavigate();
@@ -9,7 +10,6 @@ function UpdateDoc({ preselectedDoc }) {
     const docId = preselectedDoc.id || preselectedDoc._id;
     const [title, setTitle] = useState(preselectedDoc.title);
     const [content, setContent] = useState(preselectedDoc.content);
-    const [email, setEmail] = useState("");
 
     if (!preselectedDoc) {
         return <p style={{ color: "limegreen" }}>Select a document to edit.</p>;
@@ -29,26 +29,6 @@ function UpdateDoc({ preselectedDoc }) {
             },
             body: JSON.stringify({ title, content })
         }).then(() => navigate("/docs"));
-    }
-
-    function handleInvite(e) {
-        e.preventDefault();
-
-        alert("Invitation was sent!");
-
-        fetch(`${api_url}/api/invite`, {
-            method: "POST",
-            headers: { 
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${localStorage.getItem("token")}`
-            },
-            body: JSON.stringify({
-                email: email,
-                doc_id: preselectedDoc._id
-            })
-        });
-
-        setEmail("");
     }
 
     return (
@@ -79,17 +59,6 @@ function UpdateDoc({ preselectedDoc }) {
                     
                     <button className="update-button" type="submit">Save document</button>
                 </form>
-
-                <div style={{ marginTop: "1rem" }}>
-                    <label>Invite collaborator (email)</label><br/>
-                    <input 
-                        type="email"
-                        value={email}
-                        onChange={e => setEmail(e.target.value)}
-                        required
-                    /><br/>
-                    <button onClick={handleInvite} className="create-button">Send Invitation</button>
-                </div>
             </div>
         </Wrapper>
     );

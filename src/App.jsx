@@ -12,6 +12,7 @@ import Login from "./components/user/Login";
 import Register from "./components/user/Register";
 import UserList from "./components/user/UserList";
 import ProtectedRoute from "./components/ProtectedRoute";
+import InviteUser from "./components/user/InviteUser";
 
 function App() {
   const [editDoc, setDoc] = useState(null);
@@ -41,20 +42,14 @@ function App() {
             path="/edit" 
             element={
               <>
-              {/* <button 
-                className="back-button" 
-                onClick={() => navigate("/docs")}
-              >
-                Back to documents
-              </button> */}
-
-                <div className="edit-section">
+              <div className="edit-section">
                   <UpdateDoc preselectedDoc={editDoc} />
                   <DeleteDoc 
-                    preselectedDoc={editDoc} 
-                    onDelete={() => {setDoc(null);}} 
+                      preselectedDoc={editDoc} 
+                      onDelete={() => {setDoc(null);}} 
                   />
-                </div>
+                  <InviteUser docId={editDoc?._id} />
+              </div>
               </>
             } 
           />

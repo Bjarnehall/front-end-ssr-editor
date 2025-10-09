@@ -10,7 +10,7 @@ function InviteUser({ docId }) {
 
         alert("Invitation was sent!");
 
-        await fetch(`${api_url}/api/invite`, {
+        await fetch(`${api_url}/api/doc/invite`, {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json",

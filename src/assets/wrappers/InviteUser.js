@@ -8,6 +8,7 @@ const Wrapper = styled.section`
         padding: 1rem;
         margin-top: 1.5rem;
         text-align: center;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
     }
 
     label {
@@ -27,6 +28,9 @@ const Wrapper = styled.section`
 
     .create-button {
         margin-top: 0.8rem;
+        color: white;
+        background-color: var(--color-two);
+        padding: var(--small-space)
     }
 `;
 

@@ -70,3 +70,10 @@ textarea {
     padding: 0.35rem;
     margin-top: .35rem;
 }
+
+.user-status {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: limegreen;
+    text-shadow: 1px 1px 3px black;
+    margin-left: 25px;
+}

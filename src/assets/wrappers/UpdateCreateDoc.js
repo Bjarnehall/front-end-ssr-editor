@@ -5,6 +5,7 @@ const Wrapper = styled.section`
         margin: 1rem 10%;
         list-style-type: none;
         font-family:Verdana, Geneva, Tahoma, sans-serif;
+        margin-top: 0.25rem;
         color: #FFF;
     }
     label {
@@ -49,6 +50,25 @@ const Wrapper = styled.section`
     }
     .codemode {
         color: blue;
+    }
+    .mode-button {
+        padding: 0.25rem;
+        width:100%;
+        margin-left: 10%;
+        font-weight: bold;
+        background-color: var(--color-two);
+        color: var(--color-three);
+        border: solid 1px #ffffff55;
+    }
+    .back-button {
+        padding: 0.25rem;
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 1.35rem;
+        font-weight: bold;
+        background-color: var(--color-two);
+        color: var(--color-three);
+        border: solid 1px #ffffff55;
     }
 `;
 

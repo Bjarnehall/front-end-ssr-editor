@@ -14,8 +14,9 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@codemirror/lang-javascript": "^6.2.4",
+    "@uiw/codemirror-theme-okaidia": "^4.25.2",
     "@uiw/react-codemirror": "^4.25.2",
-    "codemirror": "^6.0.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.3",

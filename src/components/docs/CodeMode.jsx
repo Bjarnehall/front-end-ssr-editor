@@ -1,19 +1,25 @@
 import styled from 'styled-components';
 import CodeMirror from '@uiw/react-codemirror';
+import { javascript } from '@codemirror/lang-javascript';
+import { useCallback } from "react";
+import { okaidia } from '@uiw/codemirror-theme-okaidia';
 
-const code = 'const a = 0;';
 
-function CodeMode() {
+function CodeMode({ value, onChange }) {
+    const handleChange = useCallback((val) => {
+        onChange(val);
+    }, [onChange]);
+
+
   return (
     <Wrapper>
         <div className="codemode">
             <CodeMirror
-                value={code}
-                options={{
-                    theme: '',
-                    keyMap: '',
-                    mode: 'js',
-                }}
+                value={value}
+                height="205px"
+                theme={okaidia}
+                extensions={[javascript({ jsx: true })]}
+                onChange={handleChange}
             />
         </div>
     </Wrapper>
@@ -22,7 +28,5 @@ function CodeMode() {
 export default CodeMode
 
 const Wrapper = styled.section`
-    .codemode {
-        color: blue;
-    }
+
 `;

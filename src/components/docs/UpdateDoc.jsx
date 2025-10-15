@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import InviteUser from "../user/InviteUser";
 import { io } from "socket.io-client";
 
+import CodeMode from "../docs/CodeMode";
+
 let socket;
 
 function UpdateDoc({ preselectedDoc }) {
@@ -91,6 +93,8 @@ function UpdateDoc({ preselectedDoc }) {
                         value={content}
                         onChange={handleContentChange}
                     /><br/>
+
+                    <CodeMode />
                     
                     <button className="update-button" type="submit">Save document</button>
                 </form>

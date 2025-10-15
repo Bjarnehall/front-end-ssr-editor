@@ -47,6 +47,9 @@ const Wrapper = styled.section`
         color: var(--color-three);
         border: solid 1px #ffffff55;
     }
+    .codemode {
+        color: blue;
+    }
 `;
 
 export default Wrapper;

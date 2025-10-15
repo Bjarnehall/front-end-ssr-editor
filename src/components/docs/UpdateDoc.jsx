@@ -1,3 +1,6 @@
+import CodeMirror from "@uiw/react-codemirror";
+import { javascript } from "@codemirror/lang-javascript";
+import { oneDark } from "@codemirror/theme-one-dark";
 import Wrapper from '../../assets/wrappers/UpdateCreateDoc.js';
 import api_url from "../../url.js";
 import { useEffect, useState } from "react";
@@ -13,6 +16,7 @@ function UpdateDoc({ preselectedDoc }) {
     const docId = preselectedDoc.id || preselectedDoc._id;
     const [title, setTitle] = useState(preselectedDoc.title);
     const [content, setContent] = useState(preselectedDoc.content);
+    const [isCode, setIsCode] = useState(false);
 
     if (!preselectedDoc) {
         return <p style={{ color: "limegreen" }}>Select a document to edit.</p>;
@@ -86,12 +90,33 @@ function UpdateDoc({ preselectedDoc }) {
                     /><br/>
 
                     <label>Document Text</label><br/>
-                    <textarea
-                        type="text"
-                        value={content}
-                        onChange={handleContentChange}
-                    /><br/>
-                    
+                    <button
+                        type="button"
+                        onClick={() => setIsCode(!isCode)}
+                        className="toggle-code-button"
+                    >
+                        {isCode ? "Switch to text" : "Switch to code"}
+                    </button>
+                    <br/>
+                    {isCode ? (
+                        <CodeMirror
+                            value={content}
+                            height="200px"
+                            theme={oneDark}
+                            extensions={[javascript()]}
+                            onChange={(value) => {
+                                setContent(value);
+                                socket.emit("doc", { _id: docId, title, content: value });
+                            }}
+                        />
+                    ) : (
+                        <textarea
+                            type="text"
+                            value={content}
+                            onChange={handleContentChange}
+                        />
+                    )}
+                    <br/>                  
                     <button className="update-button" type="submit">Save document</button>
                 </form>
             </div>

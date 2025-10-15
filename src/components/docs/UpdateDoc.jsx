@@ -14,7 +14,7 @@ function UpdateDoc({ preselectedDoc }) {
     const docId = preselectedDoc.id || preselectedDoc._id;
     const [title, setTitle] = useState(preselectedDoc.title);
     const [content, setContent] = useState(preselectedDoc.content);
-    const [isCodeMode, setIsCodeMode] = useState(false);
+    const [isCode, setIsCode] = useState(preselectedDoc.is_code || false);
 
     if (!preselectedDoc) {
         return <p style={{ color: "limegreen" }}>Select a document to edit.</p>;
@@ -64,7 +64,7 @@ function UpdateDoc({ preselectedDoc }) {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
             },
-            body: JSON.stringify({ title, content })
+            body: JSON.stringify({ title, content, is_code: isCode })
         }).then(() => navigate("/docs"));
     }
 
@@ -85,10 +85,10 @@ function UpdateDoc({ preselectedDoc }) {
             <button
                 className="mode-button"
                 type="button"
-                onClick={() => setIsCodeMode(!isCodeMode)}
+                onClick={() => setIsCode(!isCode)}
                 style={{ margin: "10px 0" }}
             >
-                {isCodeMode ? "Text mode": "Code mode"}
+                {isCode ? "Text mode" : "Code mode"}
             </button>
 
                 <form onSubmit={handleSubmit}>
@@ -102,13 +102,13 @@ function UpdateDoc({ preselectedDoc }) {
                     <label>Document Text</label><br/>
 
                     {/* Render text mode or code mode */}
-                    {isCodeMode ? (
+                    {isCode ? (
                         <CodeMode 
-                        value={content} 
-                        onChange={(newValue) => {
-                            setContent(newValue);
-                            socket.emit("doc", { _id: docId, title, content: newValue });
-                        }}
+                            value={content} 
+                            onChange={(newValue) => {
+                                setContent(newValue);
+                                socket.emit("doc", { _id: docId, title, content: newValue });
+                            }}
                         />
                     ) : (
                         <textarea

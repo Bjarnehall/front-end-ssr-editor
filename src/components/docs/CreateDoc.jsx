@@ -7,6 +7,8 @@ function CreateDoc() {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
 
+    const [isCode, setIsCode] = useState(false);
+
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -19,7 +21,7 @@ function CreateDoc() {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorage.getItem("token")}` 
             },
-            body: JSON.stringify({ title, content })
+            body: JSON.stringify({ title, content, is_code: isCode })
         });
 
         setTitle("");
@@ -41,6 +43,15 @@ function CreateDoc() {
             /><br/>
 
             <label htmlFor="content">Document Text</label><br/>
+            <label>
+            <input
+                type="checkbox"
+                checked={isCode}
+                onChange={() => setIsCode(!isCode)}
+            />
+            Code mode
+            </label>
+            <br/>
             <textarea
                 id="content"
                 type="text"

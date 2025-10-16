@@ -13,6 +13,8 @@ function CreateDoc() {
     const [content, setContent] = useState("");
     const [isCodeMode, setIsCodeMode] = useState(false);
 
+    const [isCode, setIsCode] = useState(false);
+
 
     function handleSubmit(e) {
         e.preventDefault();

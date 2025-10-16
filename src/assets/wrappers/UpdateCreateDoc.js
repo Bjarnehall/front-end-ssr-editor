@@ -71,6 +71,18 @@ const Wrapper = styled.section`
         color: var(--color-three);
         border: solid 1px #ffffff55;
     }
+    input[type="checkbox"] {
+        width: auto;
+        margin-right: 8px;
+        accent-color: var(--color-three); /* gör den grön som resten av temat */
+        transform: scale(1.3); /* gör rutan lite större och tydligare */
+        cursor: pointer;
+    }
+    label[for="code-mode"] {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
 `;
 
 export default Wrapper;

@@ -83,6 +83,19 @@ const Wrapper = styled.section`
         align-items: center;
         gap: 6px;
     }
+    .output-box {
+        background-color: #111;
+        color: #0f0;
+        border: 1px solid #333;
+        padding: 10px;
+        margin-top: 10px;
+        font-family: monospace;
+        min-height: 60px;
+        max-height: 250px;
+        overflow-y: auto;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
 `;
 
 export default Wrapper;

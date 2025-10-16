@@ -15,6 +15,7 @@ function UpdateDoc({ preselectedDoc }) {
     const [title, setTitle] = useState(preselectedDoc.title);
     const [content, setContent] = useState(preselectedDoc.content);
     const [isCodeMode, setisCodeMode] = useState(preselectedDoc.is_code || false);
+    const [output, setOutput] = useState("");
 
     if (!preselectedDoc) {
         return <p style={{ color: "limegreen" }}>Select a document to edit.</p>;
@@ -86,8 +87,15 @@ function UpdateDoc({ preselectedDoc }) {
             return response.json();
         })
         .then(function(result) {
-            let decodedOutput = atob(result.data);
-            console.log(decodedOutput);
+            if (result.data) {
+                let decodedOutput = atob(result.data);
+                console.log("Decoded output:", decodedOutput);
+                setOutput(decodedOutput);
+            } else if (result.error) {
+                setOutput("Error: " + result.error);
+            } else {
+                setOutput("No output received.");
+            }
         });
     }
 
@@ -149,6 +157,10 @@ function UpdateDoc({ preselectedDoc }) {
             >
                 {"Run"}
             </button>
+            <div className="output-box">
+                <h4>Output:</h4>
+                <pre>{output}</pre>
+            </div>
                     <button className="update-button" type="submit">Save document</button>
                 </form>
             </div>

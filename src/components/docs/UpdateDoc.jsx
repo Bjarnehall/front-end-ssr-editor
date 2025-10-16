@@ -14,7 +14,7 @@ function UpdateDoc({ preselectedDoc }) {
     const docId = preselectedDoc.id || preselectedDoc._id;
     const [title, setTitle] = useState(preselectedDoc.title);
     const [content, setContent] = useState(preselectedDoc.content);
-    const [isCodeMode, setIsCodeMode] = useState(false);
+    const [isCodeMode, setIsCodeMode] = useState(preselectedDoc.is_code || false);
 
     if (!preselectedDoc) {
         return <p style={{ color: "limegreen" }}>Select a document to edit.</p>;

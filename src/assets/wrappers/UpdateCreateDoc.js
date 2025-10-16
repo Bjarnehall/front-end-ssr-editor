@@ -60,6 +60,7 @@ const Wrapper = styled.section`
         color: var(--color-three);
         border: solid 1px #ffffff55;
     }
+
     .back-button {
         padding: 0.25rem;
         width: 80%;

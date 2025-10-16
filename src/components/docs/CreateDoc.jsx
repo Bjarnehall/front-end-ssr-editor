@@ -2,7 +2,6 @@ import Wrapper from '../../assets/wrappers/UpdateCreateDoc.js';
 import api_url from "../../url.js";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import CodeMode from "../docs/CodeMode";
 
 function CreateDoc() {
@@ -12,8 +11,6 @@ function CreateDoc() {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [isCodeMode, setIsCodeMode] = useState(false);
-
-    const [isCode, setIsCode] = useState(false);
 
 
     function handleSubmit(e) {

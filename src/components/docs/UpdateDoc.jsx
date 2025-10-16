@@ -14,11 +14,7 @@ function UpdateDoc({ preselectedDoc }) {
     const docId = preselectedDoc.id || preselectedDoc._id;
     const [title, setTitle] = useState(preselectedDoc.title);
     const [content, setContent] = useState(preselectedDoc.content);
-<<<<<<< HEAD
-    const [isCodeMode, setIsCodeMode] = useState(preselectedDoc.is_code || false);
-=======
-    const [isCode, setIsCode] = useState(preselectedDoc.is_code || false);
->>>>>>> 689d74ab00207fc75411cbede7e278253d6d7e66
+    const [isCodeMode, setisCodeMode] = useState(preselectedDoc.is_code || false);
 
     if (!preselectedDoc) {
         return <p style={{ color: "limegreen" }}>Select a document to edit.</p>;
@@ -68,8 +64,31 @@ function UpdateDoc({ preselectedDoc }) {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
             },
-            body: JSON.stringify({ title, content, is_code: isCode })
+            body: JSON.stringify({ title, content, is_code: isCodeMode })
         }).then(() => navigate("/docs"));
+    }
+
+    function executeCode(content) {
+
+        const data= {
+            code: btoa(content)
+        };
+        console.log("data:", data);
+
+        fetch("https://execjs.emilfolino.se/code", {
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            },
+            method: "POST"
+        })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function(result) {
+            let decodedOutput = atob(result.data);
+            console.log(decodedOutput);
+        });
     }
 
     return (
@@ -89,10 +108,10 @@ function UpdateDoc({ preselectedDoc }) {
             <button
                 className="mode-button"
                 type="button"
-                onClick={() => setIsCode(!isCode)}
+                onClick={() => setisCodeMode(!isCodeMode)}
                 style={{ margin: "10px 0" }}
             >
-                {isCode ? "Text mode" : "Code mode"}
+                {isCodeMode ? "Text mode" : "Code mode"}
             </button>
 
                 <form onSubmit={handleSubmit}>
@@ -106,7 +125,7 @@ function UpdateDoc({ preselectedDoc }) {
                     <label>Document Text</label><br/>
 
                     {/* Render text mode or code mode */}
-                    {isCode ? (
+                    {isCodeMode ? (
                         <CodeMode 
                             value={content} 
                             onChange={(newValue) => {
@@ -122,6 +141,14 @@ function UpdateDoc({ preselectedDoc }) {
                         />
                     )}
 
+           {/* Button for switching between code and text mode */}
+            <button
+                className="exe-button"
+                type="button"
+                onClick={() => executeCode(content)}
+            >
+                {"Run"}
+            </button>
                     <button className="update-button" type="submit">Save document</button>
                 </form>
             </div>

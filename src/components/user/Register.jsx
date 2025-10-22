@@ -34,22 +34,8 @@ function Register() {
                 return;
             }
 
-            const data = await response.json();
             alert("User registered successfully!");
-
-            if (data.accesstoken && data.username) {
-                localStorage.setItem("token", data.accesstoken);
-                localStorage.setItem("username", data.username);
-                window.dispatchEvent(new Event("storage"));
-                navigate("/docs");
-            } else {
-                ("/login");
-            }
-
-            setUsername("");
-            setEmail("");
-            setPassword("");
-            setConfirmPassword("");
+            navigate("/login");
 
         } catch (error) {
             console.error(error);

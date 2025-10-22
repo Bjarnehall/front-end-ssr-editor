@@ -101,26 +101,8 @@ function UpdateDoc({ preselectedDoc }) {
 
     return (
         <Wrapper>
-            <button 
-                className="back-button" 
-                type="button" 
-                onClick={() => navigate("/docs")}
-            >
-                Back to documents
-            </button>
             <br/>
-
             <div className="editor-form">
-
-           {/* Button for switching between code and text mode */}
-            <button
-                className="mode-button"
-                type="button"
-                onClick={() => setisCodeMode(!isCodeMode)}
-                style={{ margin: "10px 0" }}
-            >
-                {isCodeMode ? "Text mode" : "Code mode"}
-            </button>
 
                 <form onSubmit={handleSubmit}>
                     <label>Document Title</label><br/>
@@ -129,10 +111,8 @@ function UpdateDoc({ preselectedDoc }) {
                         value={title}
                         onChange={handleTitleChange}
                     />
-
                     <label>Document Text</label><br/>
 
-                    {/* Render text mode or code mode */}
                     {isCodeMode ? (
                         <CodeMode 
                             value={content} 
@@ -148,20 +128,43 @@ function UpdateDoc({ preselectedDoc }) {
                             onChange={handleContentChange}
                         />
                     )}
-
-           {/* Button for switching between code and text mode */}
-            <button
-                className="exe-button"
-                type="button"
-                onClick={() => executeCode(content)}
-            >
-                {"Run"}
-            </button>
-            <div className="output-box">
-                <h4>Output:</h4>
-                <pre>{output}</pre>
-            </div>
-                    <button className="update-button" type="submit">Save document</button>
+                    {isCodeMode ? (
+                        <>
+                        <button
+                            className="mode-button"
+                            type="button"
+                            onClick={() => setisCodeMode(!isCodeMode)}
+                            style={{ margin: "10px 0" }}
+                        >
+                            {isCodeMode ? "Text mode" : "Code mode"}
+                        </button>
+                        <div className="output-container">
+                        <div className="output-box">
+                            <h4>Output:</h4>
+                            <pre>{output}</pre>
+                        </div>
+                        <button
+                            className="exe-button"
+                            type="button"
+                            onClick={() => executeCode(content)}
+                        >run <br/>code</button>
+                        </div>
+                        </>
+                    ) : (
+                        <button
+                            className="mode-button"
+                            type="button"
+                            onClick={() => setisCodeMode(!isCodeMode)}
+                        >{isCodeMode ? "Text mode" : "Code mode"}</button>
+                    )}
+                    <div className="button-container">
+                        <button 
+                            className="back-button" 
+                            type="button" 
+                            onClick={() => navigate("/docs")}
+                        >Back to documents</button>
+                        <button className="update-button" type="submit">Save document</button>
+                    </div>
                 </form>
             </div>
         </Wrapper>

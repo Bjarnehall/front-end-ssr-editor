@@ -22,6 +22,7 @@ function CodeMode({ value, onChange }) {
                 onChange={handleChange}
             />
         </div>
+
     </Wrapper>
   )
 }

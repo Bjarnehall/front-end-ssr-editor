@@ -2,7 +2,11 @@ import styled from "styled-components";
 
 const Wrapper = styled.section`
     .invite-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         width: 80%;
+        min-height: 90px;
         background-color: #1a1a1a;
         border: 1px solid limegreen;
         border-radius: 8px;
@@ -19,9 +23,8 @@ const Wrapper = styled.section`
     }
 
     input[type="email"] {
-        margin-top: 0.5rem;
         padding: 0.4rem;
-        width: 80%;
+        width: 65%;
         background-color: #333;
         color: white;
         border: 1px solid limegreen;
@@ -29,10 +32,16 @@ const Wrapper = styled.section`
     }
 
     .create-button {
-        margin-top: 0.8rem;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
         color: white;
         background-color: var(--color-two);
         padding: var(--small-space)
+    }
+    .create-button:hover {
+        cursor: pointer;
+        border: solid 3px var(--color-five);
     }
 `;
 

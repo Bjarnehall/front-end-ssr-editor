@@ -20,24 +20,16 @@ const Wrapper = styled.section`
         padding: var(--small-space);
         margin-top: var(--small-space);
         margin-bottom: var(--small-space);
+        border-radius: 10px;
     }
     textarea {
         background-color: var(--color-two);
         border: none;
         color: #FFF;
-        height: 200px;
+        height: 210px;
         width: 100%;
         padding: var(--small-space);
         margin-top: var(--small-space);
-    }
-    .update-button {
-        margin-top: 1.35rem;
-        padding: var(--small-space);
-        width: 100%;
-        font-weight: bold;
-        background-color: var(--color-two);
-        color: var(--color-three);
-        border: solid 1px #ffffff55;
     }
     .create-button {
         margin-top: 1.35rem;
@@ -47,29 +39,62 @@ const Wrapper = styled.section`
         background-color: var(--color-two);
         color: var(--color-three);
         border: solid 1px #ffffff55;
+        border-radius: 10px;
     }
+    .create-button:hover {
+        cursor: pointer;
+        border: solid 1px var(--color-five);
+    }
+
     .codemode {
         color: blue;
     }
     .mode-button {
         padding: 0.25rem;
         width:100%;
-        margin-left: 10%;
         font-weight: bold;
         background-color: var(--color-two);
         color: var(--color-three);
         border: solid 1px #ffffff55;
+        border-radius: 10px;
     }
-
+    .mode-button:hover {
+        cursor: pointer;
+        border: solid 1px var(--color-five);
+    }
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .update-button {
+        margin-top: 1.35rem;
+        padding: var(--small-space);
+        width: 50%;
+        font-weight: bold;
+        background-color: var(--color-two);
+        color: var(--color-three);
+        border: solid 1px #ffffff55;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    .update-button:hover {
+        cursor: pointer;
+        border: solid 1px var(--color-five);
+    }
     .back-button {
         padding: 0.25rem;
-        width: 80%;
-        margin-left: 10%;
+        width: 50%;
         margin-top: 1.35rem;
         font-weight: bold;
         background-color: var(--color-two);
-        color: var(--color-three);
+        color: var(--color-three);     
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
         border: solid 1px #ffffff55;
+    }
+    .back-button:hover {
+        cursor: pointer;
+        border: solid 1px var(--color-five);
     }
     input[type="checkbox"] {
         width: auto;
@@ -83,10 +108,17 @@ const Wrapper = styled.section`
         align-items: center;
         gap: 6px;
     }
+    .output-container {
+        display: flex;
+        background-color: var(--color-four);
+        justify-content: space-between;
+        align-items: center;
+        
+    }
     .output-box {
-        background-color: #111;
-        color: #0f0;
-        border: 1px solid #333;
+        background-color: var(--color-four);
+        color: var(--color-three);
+        border: none;
         padding: 10px;
         margin-top: 10px;
         font-family: monospace;
@@ -95,6 +127,28 @@ const Wrapper = styled.section`
         overflow-y: auto;
         white-space: pre-wrap;
         word-wrap: break-word;
+        width: 90%;
+    }
+    .exe-button {
+        background-color: var(--color-three);
+        background-color: var(--color-two);
+        color: white;
+        height: 50px;
+        width: 50px;
+        margin-right: 10px;
+        font-weight: bold;
+        font-size: 0.8em;
+        text-transform: capitalize;
+        border-radius: 50%;
+    }
+    .exe-button:hover {
+        cursor: pointer;
+        border: solid 3px var(--color-five);
+    }
+    .user-form {
+        max-width: 700px;
+        margin: 0 auto;
+        padding-top: 40px;
     }
 `;
 

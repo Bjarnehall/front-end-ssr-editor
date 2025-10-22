@@ -31,7 +31,6 @@ function Login() {
             localStorage.setItem("token", data.accesstoken);
             localStorage.setItem("username", data.username);
             window.dispatchEvent(new Event("storage"));
-            console.log("Login response:", data);
             alert("Login successful!");
             navigate("/docs");
 
@@ -45,29 +44,31 @@ function Login() {
 
     return (
         <Wrapper>
-        <form onSubmit={handleSubmit}>
-             <h2 className="title">Login</h2>
+        <div className="user-form">
+            <form onSubmit={handleSubmit}>
+                <h2 className="title">Login</h2>
 
-            <div className="editor-form">
-            <label htmlFor="username">Username</label><br/>
-            <input
-                id="username"
-                type="text"
-                value={username}
-                onChange={e => setUsername(e.target.value)}
-            /><br/>
+                <div className="editor-form">
+                <label htmlFor="username">Username</label><br/>
+                <input
+                    id="username"
+                    type="text"
+                    value={username}
+                    onChange={e => setUsername(e.target.value)}
+                /><br/>
 
-            <label htmlFor="password">Password</label><br/>
-            <input
-                id="password"
-                type="password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-            /><br/>
+                <label htmlFor="password">Password</label><br/>
+                <input
+                    id="password"
+                    type="password"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                /><br/>
 
-            <button className="create-button" type="submit">Login</button>
+                <button className="create-button" type="submit">Login</button>
             </div>
-        </form>
+            </form>
+        </div>
         </Wrapper>        
     )
 }

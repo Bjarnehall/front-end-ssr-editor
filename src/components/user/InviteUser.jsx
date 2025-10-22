@@ -38,9 +38,7 @@ function InviteUser({ docId }) {
                 <button 
                     onClick={handleInvite} 
                     className="create-button"
-                >
-                    Send Invitation
-                </button>
+                >Send</button>
             </div>
         </Wrapper>
     );

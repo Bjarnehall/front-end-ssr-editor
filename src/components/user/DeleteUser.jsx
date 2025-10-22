@@ -1,6 +1,10 @@
 import api_url from "../../url.js";
+import { useNavigate } from "react-router-dom";
+import Wrapper from '../../assets/wrappers/AllUsers.js';
 
 function DeleteUser({ id, onDelete }) {
+    const navigate = useNavigate();
+
     async function handleDelete() {
         if (!confirm("Are you sure you want to delete this user?")) return;
 
@@ -20,14 +24,17 @@ function DeleteUser({ id, onDelete }) {
             }
 
             alert("User deleted successfully!");
+            localStorage.clear();
             onDelete();
+            navigate("/register");
+            window.location.reload();
         } catch (error) {
             console.error("Error deleting user:", error)
         }
     }
 
     return (
-        <button className="list-button" onClick={handleDelete}>Delete</button>
+        <button className="user-button" onClick={handleDelete}>Delete</button>
     )
 }
 

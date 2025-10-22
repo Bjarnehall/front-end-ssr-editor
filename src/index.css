@@ -5,10 +5,11 @@
 }
 
 :root {
-    --color-one: #333;
-    --color-two: #2a2a2a;
+    --color-one: #0b1f2c1f;
+    --color-two: #222222;
     --color-three: limegreen;
-    --color-four: #1a1a1a;
+    --color-four: #131313;
+    --color-five: #0f98e7;
     --small-space: 0.3rem;
 }
 
@@ -27,8 +28,8 @@ body {
 
 .editor {
     background-color: var(--color-one);
-    margin: 0 10%;
-    height: 78vh;
+    margin: -1% 10%;
+    height: 80vh;
 }
 
 .title {

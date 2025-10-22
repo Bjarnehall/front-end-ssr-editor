@@ -45,45 +45,47 @@ function Register() {
 
     return (
         <Wrapper>
-        <form onSubmit={handleSubmit}>
-             <h2 className="title">Register</h2>
+        <div className="user-form">
+            <form onSubmit={handleSubmit}>
+                <h2 className="title">Register</h2>
 
-            <div className="editor-form">
-            <label htmlFor="username">Username</label><br/>
-            <input
-                id="username"
-                type="text"
-                value={username}
-                onChange={e => setUsername(e.target.value)}
-            /><br/>
-        
-            <label htmlFor="email">Email</label><br/>
-            <input
-                id="email"
-                type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-            /><br/>
+                <div className="editor-form">
+                <label htmlFor="username">Username</label><br/>
+                <input
+                    id="username"
+                    type="text"
+                    value={username}
+                    onChange={e => setUsername(e.target.value)}
+                /><br/>
+            
+                <label htmlFor="email">Email</label><br/>
+                <input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                /><br/>
 
-            <label htmlFor="password">Password</label><br/>
-            <input
-                id="password"
-                type="password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-            /><br/>
+                <label htmlFor="password">Password</label><br/>
+                <input
+                    id="password"
+                    type="password"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                /><br/>
 
-            <label htmlFor="confirmPassword">Confirm Password</label><br/>
-            <input
-                id="confirmPassword"
-                type="password"
-                value={confirmPassword}
-                onChange={e => setConfirmPassword(e.target.value)}
-            /><br/>
+                <label htmlFor="confirmPassword">Confirm Password</label><br/>
+                <input
+                    id="confirmPassword"
+                    type="password"
+                    value={confirmPassword}
+                    onChange={e => setConfirmPassword(e.target.value)}
+                /><br/>
 
-            <button className="create-button" type="submit">Register</button>
-            </div>
-        </form>
+                <button className="create-button" type="submit">Register</button>
+                </div>
+            </form>
+        </div>
         </Wrapper>        
     )
 }

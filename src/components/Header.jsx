@@ -16,7 +16,7 @@ function Cat ({ viewBox }) {
     }, []);
 
     return (
-        <svg data-testid="header-svg" width="100%" height="100%" viewBox={viewBox}>
+        <svg width="100%" height="100%" viewBox={viewBox}>
             <circle r="12" cx="40" cy="40" fill={colorCat}/>
             <circle r="8" cx="40" cy="22" fill={colorCat}/>
             <circle r="2.5" cx="43.5" cy="21" fill={eyeColor} />

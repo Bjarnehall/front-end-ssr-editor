@@ -21,15 +21,7 @@ function Nav() {
             <Link to="/docs">Editor</Link>
             <Link to="/create">Create New</Link>
             <Link to="/users">Users</Link>
-            {/* <Link 
-              to="/login" 
-              onClick={() => {
-                localStorage.clear();
-                window.dispatchEvent(new Event("storage"));
-              }}
-            >
-              Logout
-            </Link> */}
+
             <button
               className="logout-button"
               onClick={() => {

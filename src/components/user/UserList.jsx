@@ -19,13 +19,6 @@ function UserList() {
             const data = await response.json();
             setUser(data);
 
-/*             console.log("User data:", data);
-
-            if (Array.isArray(data)) {
-                setUsers(data);
-            } else {
-                setUsers([]);
-            } */
         } catch (error) {
             console.error("Error fetching users:", error);
             setUser(null);

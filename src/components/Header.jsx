@@ -29,24 +29,18 @@ function Cat ({ viewBox }) {
     );
 }
 
-function Header() {
+function Header({ userName }) {
     const navigate = useNavigate();
     const [viewBox] = useState("0 0 1000 60");
-    const [username, setUsername] = useState(localStorage.getItem("username") || null);
-
-    useEffect(() => {
-        const checkLogin = () => setUsername(localStorage.getItem("username"));
-        window.addEventListener("storage", checkLogin);
-        return () => window.removeEventListener("storage", checkLogin);
-    }, []);
+    //const [username, setUsername] = useState(localStorage.getItem("username") || null);
 
     return (
         <div className="header">
             <Cat viewBox={viewBox}/>
                 <div className="user-status">
-                {username ? (
+                {userName ? (
                     <>
-                        <span>Logged in as <strong>{username}</strong></span>
+                        <span>Logged in as <strong>{userName}</strong></span>
                     </>
                 ) : (
                     <span>Not logged in</span>

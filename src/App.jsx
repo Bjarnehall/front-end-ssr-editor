@@ -21,11 +21,12 @@ function App() {
   // Use state to handle which document to access when entering
   // edit mode.
   const [editDoc, setDoc] = useState(null);
+  const [userName, setUserName] = useState(localStorage.getItem("username") || "");
 
   return (
     <div className='container'>
       {/* Use header and nav component directly in app so be visable on all pages */}
-      <Header />
+      <Header userName={userName}/>
       <Nav />
 
       <div className='editor'>
@@ -60,7 +61,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/users" element={
             <ProtectedRoute>
-                <UserList />
+                <UserList onUserNameUpdate={setUserName}/>
             </ProtectedRoute>
             } />
         </Routes>

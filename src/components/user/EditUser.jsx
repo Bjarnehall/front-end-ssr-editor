@@ -2,7 +2,7 @@ import { useState } from "react";
 import api_url from "../../url.js";
 import Wrapper from '../../assets/wrappers/UpdateCreateDoc.js';
 
-function EditUser({ user, onUpdate}) {
+function EditUser({ user, onUpdate, onUserNameUpdate }) {
     const [username, setUsername] = useState(user.username);
     const [email, setEmail] = useState(user.email);
     const [password, setPassword] = useState("");
@@ -10,7 +10,9 @@ function EditUser({ user, onUpdate}) {
 
     async function handleSave() {
         try {
-            //console.log("Updating user with data:", { username, email });
+            // Send new user information to api to update the user profile
+            // The backend will only update those fields that user has provided
+            // if a field is empty the api will ignore these.
             const response = await fetch(`${api_url}/api/users/update/${user.id || user._id}`, {
                 method: "PUT",
                 headers: { 
@@ -29,7 +31,7 @@ function EditUser({ user, onUpdate}) {
             alert("User updated successfully!");
             setIsEditing(false);
             localStorage.setItem("username", username);
-            window.location.reload();
+            if (onUserNameUpdate) onUserNameUpdate(username);
             onUpdate();
         } catch (error) {
             console.error("Error updating user:", error);

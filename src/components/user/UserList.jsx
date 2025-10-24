@@ -4,7 +4,7 @@ import api_url from "../../url.js";
 import EditUser from "./EditUser";
 import DeleteUser from "./DeleteUser";
 
-function UserList() {
+function UserList({ onUserNameUpdate }) {
     const [user, setUser] = useState([]);
 
     async function fetchUser() {
@@ -37,7 +37,8 @@ function UserList() {
                 <p><small>username:</small> {user.username}<br/><small>email: </small>{user.email}</p>
                 </div>
                 <div className="button-container">
-                    <EditUser user={user} onUpdate={fetchUser} />
+                    <EditUser user={user} onUpdate={fetchUser} onUserNameUpdate={onUserNameUpdate} />
+
                     <DeleteUser id={user.id} onDelete={fetchUser} />
                 </div>
 

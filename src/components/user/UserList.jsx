@@ -4,7 +4,6 @@ import api_url from "../../url.js";
 import EditUser from "./EditUser";
 import DeleteUser from "./DeleteUser";
 
-
 function UserList() {
     const [user, setUser] = useState([]);
 

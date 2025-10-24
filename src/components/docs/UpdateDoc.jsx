@@ -21,9 +21,7 @@ function UpdateDoc({ preselectedDoc }) {
         return <p style={{ color: "limegreen" }}>Select a document to edit.</p>;
     }
 
-    /*
-    Connect to sockets create new room with docId
-    */
+    //Connect to sockets create new room with docId
     useEffect(() => {
         socket = io(api_url);
         socket.emit("create", docId);
@@ -36,17 +34,15 @@ function UpdateDoc({ preselectedDoc }) {
             socket.disconnect();
         };
     }, [docId]);
-    /*
-    Check for content change and submit new content
-    */
+
+    //Check for content change and submit new content
     const handleContentChange = (e) => {
         const newContent = e.target.value;
         setContent(newContent);
         socket.emit("doc", { _id: docId, title: title, content: newContent });
     };
-    /*
-    Check for title change and submit new title
-    */
+    
+    //Check for title change and submit new title
     const handleTitleChange = (e) => {
         const newTitle = e.target.value;
         setTitle(newTitle);

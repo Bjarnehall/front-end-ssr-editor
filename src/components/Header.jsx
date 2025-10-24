@@ -40,13 +40,6 @@ function Header() {
         return () => window.removeEventListener("storage", checkLogin);
     }, []);
 
-/*     function handleLogout() {
-        localStorage.removeItem("token");
-        localStorage.removeItem("username");
-        alert("You are now logged out.");
-        navigate("/login");
-    } */
-
     return (
         <div className="header">
             <Cat viewBox={viewBox}/>

@@ -7,6 +7,7 @@ function AllDocs({ onEdit }) {
     const [docs, setDocs] = useState([]);
     const navigate = useNavigate();
 
+    // Get users documents from api, validate user by sending usertoken
     useEffect(() => {
       fetch(`${api_url}/api/doc/getdocs/`, {
         headers: {
@@ -25,19 +26,18 @@ function AllDocs({ onEdit }) {
         <Wrapper>
             <h2 className="title">All documents</h2>
             <ul className="list">
+                {/*Present all documents and also add a edit button for each document,
+                The edit button navigate to edit chosen document.*/}
                 {docs.map(doc => (
                     <li key={doc._id}>
                         <strong>{doc.title}</strong>
                         {onEdit && (
-                            <button 
-                                className="list-button" 
+                            <button className="list-button" 
                                 onClick={() => {
                                     onEdit(doc);
                                     navigate("/edit");
                                 }}
-                            >
-                                Edit
-                            </button>
+                            >Edit</button>
                         )}
                     </li>
                 ))}

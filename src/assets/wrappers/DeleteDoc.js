@@ -9,10 +9,13 @@ const Wrapper = styled.section`
         background-color: var(--color-two);
         color: rgb(205, 50, 50);
         border: solid 1px #ffffff55;
+        border-radius: 10px;
     }
 
     .delete-button:hover {
-        border: solid 1px #ffffff2c;
+        cursor: pointer;
+        border: solid 1px var(--color-five);
+        
     }
 `;
 

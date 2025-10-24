@@ -344,18 +344,24 @@ Please change the parent <Route path="${R}"> to <Route path="${R==="/"?"*":`${R}
         margin-top: 0.5rem;
         background-color: var(--color-two);
         padding: var(--small-space);
-
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 0.65em;
+        border-radius: 10px;
     }
 
     .list-button {
         padding: var(--small-space);
         width: 90px;
         font-weight: bold;
-        background-color: var(--color-two);
-        color: var(--color-three);
+        background-color: var(--color-three);
+        color: var(--color-two);
+        border-radius: 10px;
+    }
+    .list-button:hover {
+        cursor: pointer;
+        border: solid 2px var(--color-five);
     }
 `;function X4({onEdit:n}){const[t,e]=_.useState([]),i=Ji();return _.useEffect(()=>{fetch(`${Xi}/api/doc/getdocs/`,{headers:{Authorization:`Bearer ${localStorage.getItem("token")}`}}).then(s=>s.json()).then(s=>e(s.documents||[])).catch(s=>{console.error("Error fetching documents:",s),e([])})},[]),A.jsxs(D4,{children:[A.jsx("h2",{className:"title",children:"All documents"}),A.jsx("ul",{className:"list",children:t.map(s=>A.jsxs("li",{children:[A.jsx("strong",{children:s.title}),n&&A.jsx("button",{className:"list-button",onClick:()=>{n(s),i("/edit")},children:"Edit"})]},s._id))})]})}function L4(){const n=Ji(),[t,e]=_.useState(""),[i,s]=_.useState(""),[a,o]=_.useState(!1);function u(f){f.preventDefault();const d=a;alert("Document was created!"),fetch(`${Xi}/api/doc/create`,{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${localStorage.getItem("token")}`},body:JSON.stringify({title:t,content:i,is_code:d})}),e(""),s(""),n("/docs")}return A.jsx(Do,{children:A.jsxs("div",{className:"editor-form",children:[A.jsx("button",{className:"mode-button",type:"button",onClick:()=>o(!a),style:{margin:"10px 0"},children:a?"Text mode":"Code mode"}),A.jsxs("form",{onSubmit:u,children:[A.jsx("label",{htmlFor:"title",children:"Document Title"}),A.jsx("br",{}),A.jsx("input",{id:"title",type:"text",value:t,onChange:f=>e(f.target.value)}),A.jsx("br",{}),A.jsx("label",{htmlFor:"content",children:"Document Text"}),A.jsx("br",{}),a?A.jsx(YT,{value:i,onChange:f=>s(f)}):A.jsx("textarea",{type:"text",value:i,onChange:f=>s(f.target.value)}),A.jsx("button",{className:"create-button",type:"submit",children:"Create Document"})]})]})})}const B4=ir.section`
     .list {
@@ -391,6 +397,10 @@ Please change the parent <Route path="${R}"> to <Route path="${R==="/"?"*":`${R}
         border: solid 1px #ffffff55;
         border-radius: 10px;
         width: 100%;
+    }
+    .user-button:hover {
+        cursor: pointer;
+        border: solid 1px var(--color-five);
     }
 
     .title-user {
@@ -459,4 +469,4 @@ Please change the parent <Route path="${R}"> to <Route path="${R==="/"?"*":`${R}
         cursor: pointer;
         border: solid 3px var(--color-five);
     }
-`;function U4({docId:n}){const[t,e]=_.useState("");async function i(s){s.preventDefault(),alert("Invitation was sent!"),await fetch(`${Xi}/api/doc/invite`,{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${localStorage.getItem("token")}`},body:JSON.stringify({email:t,doc_id:n})}),e("")}return A.jsx(q4,{children:A.jsxs("div",{className:"invite-box",children:[A.jsx("label",{children:"Invite collaborator (email)"}),A.jsx("br",{}),A.jsx("input",{type:"email",value:t,onChange:s=>e(s.target.value),required:!0}),A.jsx("br",{}),A.jsx("button",{onClick:i,className:"create-button",children:"Send"})]})})}function V4(){const[n,t]=_.useState(null),[e,i]=_.useState(localStorage.getItem("username")||"");return A.jsxs("div",{className:"container",children:[A.jsx(WA,{userName:e}),A.jsx(FE,{onUserNameUpdate:i}),A.jsx("div",{className:"editor",children:A.jsxs(pA,{children:[A.jsx(Vn,{path:"/",element:A.jsx(JE,{})}),A.jsx(Vn,{path:"/about",element:A.jsx(oR,{})}),A.jsx(Vn,{path:"/create",element:A.jsx(Nu,{children:A.jsx(L4,{})})}),A.jsx(Vn,{path:"/docs",element:A.jsx(Nu,{children:A.jsx(X4,{onEdit:s=>t(s)})})}),A.jsx(Vn,{path:"/edit",element:A.jsx(Nu,{children:A.jsxs("div",{className:"edit-section",children:[A.jsx(_4,{preselectedDoc:n}),A.jsx(z4,{preselectedDoc:n,onDelete:()=>{t(null)}}),A.jsx(U4,{docId:n?._id})]})})}),A.jsx(Vn,{path:"/login",element:A.jsx(uR,{onUserNameUpdate:i})}),A.jsx(Vn,{path:"/register",element:A.jsx(cR,{})}),A.jsx(Vn,{path:"/users",element:A.jsx(Nu,{children:A.jsx(Y4,{onUserNameUpdate:i})})})]})})]})}w$.createRoot(document.getElementById("root")).render(A.jsx(_.StrictMode,{children:A.jsx(DA,{basename:"/front-end-ssr-editor",children:A.jsx(V4,{})})}));
+`;function U4({docId:n}){const[t,e]=_.useState("");async function i(s){s.preventDefault(),alert("Invitation was sent!"),await fetch(`${Xi}/api/doc/invite`,{method:"POST",headers:{"Content-Type":"application/json",Authorization:`Bearer ${localStorage.getItem("token")}`},body:JSON.stringify({email:t,doc_id:n})}),e("")}return A.jsx(q4,{children:A.jsxs("div",{className:"invite-box",children:[A.jsx("label",{children:"Invite collaborator (email)"}),A.jsx("br",{}),A.jsx("input",{type:"email",value:t,onChange:s=>e(s.target.value),required:!0}),A.jsx("br",{}),A.jsx("button",{onClick:i,className:"create-button",children:"Send"})]})})}function V4(){const[n,t]=_.useState(null),[e,i]=_.useState(localStorage.getItem("username")||"");return A.jsxs("div",{className:"container",children:[A.jsx(WA,{userName:e}),A.jsx(FE,{onUserNameUpdate:i}),A.jsx("div",{className:"editor",children:A.jsxs(pA,{children:[A.jsx(Vn,{path:"/",element:A.jsx(JE,{})}),A.jsx(Vn,{path:"/about",element:A.jsx(oR,{})}),A.jsx(Vn,{path:"/create",element:A.jsx(Nu,{children:A.jsx(L4,{})})}),A.jsx(Vn,{path:"/docs",element:A.jsx(Nu,{children:A.jsx(X4,{onEdit:s=>t(s)})})}),A.jsx(Vn,{path:"/edit",element:A.jsx(Nu,{children:A.jsxs("div",{className:"edit-section",children:[A.jsx(_4,{preselectedDoc:n}),A.jsx(z4,{preselectedDoc:n,onDelete:()=>{t(null)}}),A.jsx(U4,{docId:n?._id})]})})}),A.jsx(Vn,{path:"/login",element:A.jsx(uR,{onUserNameUpdate:i})}),A.jsx(Vn,{path:"/register",element:A.jsx(cR,{})}),A.jsx(Vn,{path:"/users",element:A.jsx(Nu,{children:A.jsx(Y4,{onUserNameUpdate:i})})})]})})]})}w$.createRoot(document.getElementById("root")).render(A.jsx(_.StrictMode,{children:A.jsx(DA,{children:A.jsx(V4,{})})}));

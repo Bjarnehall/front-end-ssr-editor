@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Wrapper from '../assets/wrappers/Nav';
+import { useNavigate } from "react-router-dom";
 
 function Nav() {
   const [token, setToken] = useState(localStorage.getItem("token"));
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleStorageChange = () => setToken(localStorage.getItem("token"));
@@ -11,12 +13,12 @@ function Nav() {
     return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
 
-  function handleLogout() {
-      localStorage.removeItem("token");
-      localStorage.removeItem("username");
-      alert("You are now logged out.");
-      navigate("/login");
-  }
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setToken(null);
+    window.dispatchEvent(new Event("storage"));
+    navigate("/login");
+  };
 
   return (
     <Wrapper>
@@ -32,10 +34,7 @@ function Nav() {
             <button
               className="logout-button"
               onClick={() => {
-/*                 localStorage.clear();
-                window.dispatchEvent(new Event("storage"));
-                window.location.href = "/login"; */
-                handleLogout()
+                handleLogout();
               }}
             >
               Logout

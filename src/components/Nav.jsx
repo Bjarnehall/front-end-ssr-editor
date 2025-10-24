@@ -11,6 +11,13 @@ function Nav() {
     return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
 
+  function handleLogout() {
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+      alert("You are now logged out.");
+      navigate("/login");
+  }
+
   return (
     <Wrapper>
       <nav>
@@ -25,9 +32,10 @@ function Nav() {
             <button
               className="logout-button"
               onClick={() => {
-                localStorage.clear();
+/*                 localStorage.clear();
                 window.dispatchEvent(new Event("storage"));
-                window.location.href = "/login";
+                window.location.href = "/login"; */
+                handleLogout()
               }}
             >
               Logout

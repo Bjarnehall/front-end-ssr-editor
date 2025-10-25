@@ -6,16 +6,16 @@ const Wrapper = styled.section`
         list-style-type: none;
         font-family:Verdana, Geneva, Tahoma, sans-serif;
         margin-top: 0.25rem;
-        color: #FFF;
+        color: var(--color-six);
     }
     label {
-        color: #FFF;
+        color: var(--color-six);
         font-weight: bold;
     }
     input {
         background-color: var(--color-two);
         border: none;
-        color: #FFF;
+        color: var(--color-six);
         width: 100%;
         padding: var(--small-space);
         margin-top: var(--small-space);
@@ -25,7 +25,7 @@ const Wrapper = styled.section`
     textarea {
         background-color: var(--color-two);
         border: none;
-        color: #FFF;
+        color: var(--color-six);
         height: 210px;
         width: 100%;
         padding: var(--small-space);

@@ -25,19 +25,6 @@ const Wrapper = styled.section`
         background-color: var(--color-three);
         color: var(--color-two);
     }
-/*     nav button {
-    color: white;
-    background: transparent;
-    border: 1px solid white;
-    padding: 0.35rem 0.6rem;
-    cursor: pointer;
-    margin: var(--small-space);
-    }
-
-    nav button:disabled {
-    color: var(--color-three);
-    border-color: var(--color-three);
-    } */
 
     .user-info {
         display: flex;

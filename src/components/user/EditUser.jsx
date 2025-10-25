@@ -1,8 +1,11 @@
 import { useState } from "react";
 import api_url from "../../url.js";
 import Wrapper from '../../assets/wrappers/UpdateCreateDoc.js';
-
+/*
+Component to edit userprofile.
+*/
 function EditUser({ user, onUpdate, onUserNameUpdate }) {
+    // Use useState to handle user information
     const [username, setUsername] = useState(user.username);
     const [email, setEmail] = useState(user.email);
     const [password, setPassword] = useState("");
@@ -21,13 +24,14 @@ function EditUser({ user, onUpdate, onUserNameUpdate }) {
                 },
                 body: JSON.stringify({ username, email, password })
             });
-
+            // If response not ok from api let user know edit did not work.
             if (!response.ok) {
                 const errorText = await response.text();
                 alert("Failed to update user: " + errorText);
                 return;
             }
-
+            // Let user know user was updated, update username from useState
+            // and localstorage so that user could be presented correctly.
             alert("User updated successfully!");
             setIsEditing(false);
             localStorage.setItem("username", username);
@@ -39,6 +43,7 @@ function EditUser({ user, onUpdate, onUserNameUpdate }) {
     }
 
     return (
+        // Render form to edit userprofile.
         <Wrapper>
         <div className="user-form">
             {isEditing ? (
@@ -68,7 +73,7 @@ function EditUser({ user, onUpdate, onUserNameUpdate }) {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     <br/>
-                    <button className="user-button" onClick={handleSave}>Save</button><br/>
+                    <button type="button" className="user-button" onClick={handleSave}>Save</button><br/>
                     <button className="user-button" onClick={() => setIsEditing(false)}>Cancel</button>
                 </>
             ) : (

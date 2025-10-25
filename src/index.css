@@ -10,6 +10,7 @@
     --color-three: limegreen;
     --color-four: #131313;
     --color-five: #0f98e7;
+    --color-six: #fff;
     --small-space: 0.3rem;
 }
 
@@ -36,25 +37,25 @@ body {
     margin: 0 10%;
     padding-top: 1.5rem;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    color: #FFF;
+    color: var(--color-six);
 }
 
 .editor-form {
     margin: 1rem 10%;
     list-style-type: none;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    color: #FFF;
+    color: var(--color-six);
 }
 
 label {
-    color: #FFF;
+    color: var(--color-six);
     font-weight: bold;
 }
 
 textarea {
     background-color: var(--color-two);
     border: none;
-    color: #FFF;
+    color: var(--color-six);
     height: 200px;
     width: 100%;
     padding: 0.35rem;
@@ -63,7 +64,7 @@ textarea {
 
 .user-status {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    color: limegreen;
+    color: var(--color-three);
     text-shadow: 1px 1px 3px black;
     margin-left: 25px;
 }

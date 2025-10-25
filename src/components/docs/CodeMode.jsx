@@ -3,15 +3,16 @@ import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import { useCallback } from "react";
 import { okaidia } from '@uiw/codemirror-theme-okaidia';
-
-
+/*
+Component to use code-mirror for code editing.
+*/
 function CodeMode({ value, onChange }) {
     const handleChange = useCallback((val) => {
         onChange(val);
     }, [onChange]);
 
-
   return (
+    // Render codemirror editor
     <Wrapper>
         <div className="codemode">
             <CodeMirror
@@ -22,7 +23,6 @@ function CodeMode({ value, onChange }) {
                 onChange={handleChange}
             />
         </div>
-
     </Wrapper>
   )
 }

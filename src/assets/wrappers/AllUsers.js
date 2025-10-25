@@ -5,7 +5,7 @@ const Wrapper = styled.section`
         margin: 1rem 10%;
         list-style-type: none;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        color: #FFF;
+        color: var(--color-six);
     }
 
     .list li {
@@ -35,15 +35,19 @@ const Wrapper = styled.section`
         border-radius: 10px;
         width: 100%;
     }
+    .user-button:hover {
+        cursor: pointer;
+        border: solid 1px var(--color-five);
+    }
 
     .title-user {
         font-family:Verdana, Geneva, Tahoma, sans-serif;
-        color: #FFF;
+        color: var(--color-six);
         text-align: center;
     }
     .profile-user {
         font-family:Verdana, Geneva, Tahoma, sans-serif;
-        color: #FFF;
+        color: var(--color-six);
         margin-top: 1em;
         margin-bottom: -1.5em;
         font-weight: bold;
@@ -55,7 +59,7 @@ const Wrapper = styled.section`
     }
     h4 {
         font-family:Verdana, Geneva, Tahoma, sans-serif;
-        color: #FFF;
+        color: var(--color-six);
         margin-bottom: 0.35em;
     }
 

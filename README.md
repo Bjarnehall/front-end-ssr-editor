@@ -1,6 +1,4 @@
 
-Testar skapa en branch
-
 # Skapa en REACT application
 
 ## Skapa ett react projekt i nuvarande folder med hjälp av vite
@@ -21,7 +19,7 @@ npm install
 
 npm run dev
 
-Nu finns det och körs en react applikation med dess default start sida lokalt.
+Nu finns en start app med dess default start sida lokalt.
 
 
 # Att köra  React tillsammans med Express

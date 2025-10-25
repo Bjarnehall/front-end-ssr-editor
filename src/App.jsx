@@ -17,9 +17,13 @@ import {
     InviteUser,
 } from './components/components';
 
+/*
+App component handles the whole page by rendering subcomponents, the subcomponents
+loaded and their behavior is dependent on user behaviour props sent and states
+of variables
+*/
 function App() {
-  // Use state to handle which document to access when entering
-  // edit mode.
+  // Usestate to handle document and username.
   const [editDoc, setDoc] = useState(null);
   const [userName, setUserName] = useState(localStorage.getItem("username") || "");
 
@@ -27,13 +31,14 @@ function App() {
     <div className='container'>
       {/* Use header and nav component directly in app so be visable on all pages */}
       <Header userName={userName}/>
-      <Nav />
+      <Nav onUserNameUpdate={setUserName} />
 
       <div className='editor'>
         {/* Define diffrent routes for page. Use ProtectedROute to stop user
         accessing certain routes*/}
         <Routes>
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Register />} />
           <Route path="/about" element={<About />} />
           <Route path="/create" element={
             <ProtectedRoute>
@@ -49,15 +54,13 @@ function App() {
               <ProtectedRoute>
               <div className="edit-section">
                   <UpdateDoc preselectedDoc={editDoc} />
-                  <DeleteDoc preselectedDoc={editDoc} 
-                      onDelete={() => {setDoc(null);}} 
-                  />
+                  <DeleteDoc preselectedDoc={editDoc} onDelete={() => {setDoc(null);}} />
                   <InviteUser docId={editDoc?._id} />
               </div>
               </ProtectedRoute>
             } 
           />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login onUserNameUpdate={setUserName} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/users" element={
             <ProtectedRoute>

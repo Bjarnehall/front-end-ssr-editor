@@ -1,5 +1,5 @@
 import Wrapper from '../assets/wrappers/AboutHome';
-
+// Renders Welcome page for visitors of page.
 function Home() {
   return (
     <Wrapper>

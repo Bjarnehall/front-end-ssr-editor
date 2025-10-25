@@ -1,10 +1,14 @@
 import {useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+/*
+Function to create a responsive svg header of a cat blinking its eyse.
+*/
 const colorCat = "limegreen";
 const colorEye = "yellow";
 
 function Cat ({ viewBox }) {
+    // Handle blinking eyes.
     const [eyeColor, setColor] = useState(colorEye);
     useEffect(() => {
         const interval = setInterval(() => {
@@ -16,6 +20,8 @@ function Cat ({ viewBox }) {
     }, []);
 
     return (
+        // Draw a cat by creating diffrent circles and polygons inside the viewbox.
+        // using svg code. Also add a text for a complete header look.
         <svg width="100%" height="100%" viewBox={viewBox}>
             <circle r="12" cx="40" cy="40" fill={colorCat}/>
             <circle r="8" cx="40" cy="22" fill={colorCat}/>
@@ -28,13 +34,16 @@ function Cat ({ viewBox }) {
         </svg>
     );
 }
-
+// 
 function Header({ userName }) {
-    const navigate = useNavigate();
+    /* const navigate = useNavigate(); */
+    // Define a size and position of viewbox
     const [viewBox] = useState("0 0 1000 60");
-    //const [username, setUsername] = useState(localStorage.getItem("username") || null);
 
     return (
+        // Renders the header image and also present user
+        // With logged in as Example or Not logged in dependent on
+        // if userName is defined
         <div className="header">
             <Cat viewBox={viewBox}/>
                 <div className="user-status">

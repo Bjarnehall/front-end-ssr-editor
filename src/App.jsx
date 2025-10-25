@@ -25,13 +25,13 @@ of variables
 function App() {
   // Usestate to handle document and username.
   const [editDoc, setDoc] = useState(null);
-  const [userName, setUserName] = useState(localStorage.getItem("username") || "");
+  const [username, setUsername] = useState(localStorage.getItem("username") || "");
 
   return (
     <div className='container'>
       {/* Use header and nav component directly in app so be visable on all pages */}
-      <Header userName={userName}/>
-      <Nav onUserNameUpdate={setUserName} />
+      <Header username={username}/>
+      <Nav onUserNameUpdate={setUsername} />
 
       <div className='editor'>
         {/* Define diffrent routes for page. Use ProtectedROute to stop user
@@ -60,11 +60,11 @@ function App() {
               </ProtectedRoute>
             } 
           />
-          <Route path="/login" element={<Login onUserNameUpdate={setUserName} />} />
+          <Route path="/login" element={<Login onUserNameUpdate={setUsername} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/users" element={
             <ProtectedRoute>
-                <UserList onUserNameUpdate={setUserName}/>
+                <UserList onUserNameUpdate={setUsername}/>
             </ProtectedRoute>
             } />
         </Routes>

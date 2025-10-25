@@ -35,7 +35,7 @@ function Cat ({ viewBox }) {
     );
 }
 // 
-function Header({ userName }) {
+function Header({ username }) {
     /* const navigate = useNavigate(); */
     // Define a size and position of viewbox
     const [viewBox] = useState("0 0 1000 60");
@@ -47,9 +47,9 @@ function Header({ userName }) {
         <div className="header">
             <Cat viewBox={viewBox}/>
                 <div className="user-status">
-                {userName ? (
+                {username ? (
                     <>
-                        <span>Logged in as <strong>{userName}</strong></span>
+                        <span>Logged in as <strong>{username}</strong></span>
                     </>
                 ) : (
                     <span>Not logged in</span>

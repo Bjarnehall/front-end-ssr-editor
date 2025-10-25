@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 /*
 Component to handle login of user.
 */
-function Login() {
+function Login({ onUserNameUpdate }) {
     // Use navigate to redirect user if login successful.
     const navigate = useNavigate();
     // Use useState to handle form data.
@@ -35,6 +35,7 @@ function Login() {
             localStorage.setItem("token", data.accesstoken);
             localStorage.setItem("username", data.username);
             window.dispatchEvent(new Event("storage"));
+            onUserNameUpdate(data.username);
             // Tell user of success and redirect user to its saved documents.
             alert("Login successful!");
             navigate("/docs");
